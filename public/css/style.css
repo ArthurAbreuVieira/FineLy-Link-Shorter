@@ -1,0 +1,269 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* Reset */
+* {
+  box-sizing: border-box;
+
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  text-decoration: none;
+
+  outline: none;
+
+  margin: 0;
+  padding: 0;
+
+  color: white
+
+}
+
+p {
+  margin-top: 25px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+.input a:hover {
+  color: white;
+}
+
+/* Header */
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #2e2d31c5;
+  box-shadow: 0 5px 20px black;
+  backdrop-filter: blur(10px);
+
+  position: fixed;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 60px;
+  background-color: black;
+
+  margin-left: 25px;
+}
+
+.menu {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 25px;
+
+  border-bottom: 2px solid #2ebd59; 
+}
+
+.menu nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.menu nav ul li {
+  margin-right: 25px;
+}
+
+.menu nav ul li:last-child {
+  margin: 0;
+}
+
+a:hover {
+  color: #2ebd59;
+  text-shadow: 0 0 10px #000;
+}
+
+/* body */
+body {
+  width: 100%;
+  height: 100vh;
+
+  /* background-color: #2ebd59; */
+  background-color: #09191c;
+
+  /* background-image: url("../img/wallpaper.png");
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../img/wallpaper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 70%;
+
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px black;
+
+  background-color: #2e2d31c5;
+  /* background-color: #2e2d31; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+}
+
+.form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 70%;
+  height: 45px;
+
+  font-size: 20px;
+  
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.link-input {
+  background-color: #ffffffd7;
+  color: #2e2d31;
+  padding: 20px;
+}
+
+.link-input::placeholder {
+  color: #2e2d31;
+  text-align: center;
+}
+
+.submit-btn {
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 2px 2px 20px black;
+  background: linear-gradient(to right, #2ebd59, #00aebb);
+}
+
+.submit-btn:hover {
+  border: 2px solid #00aebb;
+  box-shadow: 0 0 30px #0197a1;
+    /* background: linear-gradient(to right, #21803d, #03767e);  */
+}
+
+.info {
+  margin-top: 25px;
+}
+
+.info p {
+  margin-top: 10px;
+}
+
+.en-link {
+  color: #2ebd59;
+}
+.en-link:hover {
+  text-decoration: underline;
+}
+
+/* section */
+.features-section {
+  width: 100%;
+  height: 100%;
+  color: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+}
+
+.features-section h3 {
+  font-size: 40px;
+  color: #2ebd59;
+  text-shadow: 2px 2px 15px black;
+}
+
+.features-section ul {
+  margin-top: 10px;
+  list-style: none;
+}
+
+.features-section ul li:before {
+  content: '\2022';
+  margin: 0 10px;
+  color: #2ebd59;
+  font-size: 25px;
+  text-shadow: 2px 2px 10px black;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  /* background-color: rgb(85, 85, 85); */
+  width: 300px;
+  height: 250px;
+  padding: 25px;
+  border: 2px solid #2ebd59;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px #2ebd59;
+  margin: 30px;
+}
+
+.card-container-row {
+  display: flex;
+}
+
+.card-header {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  /* background-color: #00aebb; */
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 15px;
+}
+
+.card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2ebd59c2;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card-icon .fas {
+  font-size: 30px;
+  text-shadow: 2px 2px 10px black;
+}

@@ -1,0 +1,126 @@
+{% extends 'templates/base.html' %}
+
+{% block title %} Teste {% endblock %}
+
+{% block content %}
+<main>
+  <div class="container">
+    <div class="logo"></div>
+    <div class="form">
+      <form action="./create" method="GET">
+        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" />
+        <input class="submit-btn input" type="submit" value="Encurtar" />
+      </form>
+    </div>
+    <div class="info">
+      <h3>O que é o FineLy?</h3>
+      <p>Uma ferramenta que serve para encurtar links. Basta digitar uma URL longa no campo acima e a mesma será
+        reduzida a um novo link curto, facilitando o compartilhamento.</p>
+      <p>FineLy não requer que seja registrado para encurtar links mas quem se cadastra conta com mais ferramentas
+        utéis. <a class="en-link" href="#features">Descubra agora os beneficios de criar uma conta gratuitamente</a>.</p>
+    </div>
+  </div>
+</main>
+<section id="features" class="features-section">
+  <div class="box">
+    <h3>Beneficios de criar uma conta</h3>
+    <p>Criando uma conta você tem acesso a funcionalidades gratuitas para acompanhar o que acontece com seu link, como
+      por exemplo:</p>
+    <ul>
+      <li>Salvar todos os seus links encurtados na sua conta.</li>
+      <li>Visualizar quando e quantas pessoas clicou no seu link</li>
+      <li>Visualizar informações de criação do seu link</li>
+      <li>Alterar o endereço de redirecionamento do seu link depois de criado</li>
+      <li>Utilizar novas funcionalidades implementadas futuramente</li>
+    </ul>
+    <button style="margin-top: 25px;width: 50%;" class="input submit-btn">
+      <a href="">Cadastrar gratuitamente</a>
+    </button>
+  </div>
+</section>
+<section id="" class="features-section">
+  
+  <div class="cards">
+    <div class="card-container-row">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <div class="card-title">
+            <h5>Simples</h5>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Encurte qualquer link com FineLy facilmente idependentemente do tamanho.</p>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="card-title">
+            <h5>Monitore</h5>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Saiba quando e quantas pessoas clicaram no link além de saber as informações de criação do seu link.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-container-row">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+          <div class="card-title">
+            <h5>Edite</h5>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Edite o link de redirecionamento sem necessidade de criar um novo.</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-stream"></i>
+          </div>
+          <div class="card-title">
+            <h5>Todos os seus links juntos</h5>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Seus links ficam todos em um só lugar para facilmente vizualizar as informações que precisa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="">
+    <div class="card" style="height: 300px;">
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="card-title">
+          <h5>Gratuito</h5>
+        </div>
+      </div>
+      <div class="card-content">
+        <p>Crie quantos links encurtados quiser e desfrute de todas as funcionalidades criando uma conta gratuitamente.</p>
+        <button style="margin-top:30px;width: 100%;" class="input submit-btn">
+          <a href="">Cadastrar gratuitamente</a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}

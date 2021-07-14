@@ -12,4 +12,5 @@ class PageController extends Controller{
   public function index() {
     $this->load('index.html',[]);
   }
+
 }
