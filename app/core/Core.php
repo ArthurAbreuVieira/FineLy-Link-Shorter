@@ -2,18 +2,22 @@
 
 namespace App\Core;
 
+use App\Core\Database;
+
 class Core {
   private $routesGet = [];
-  
-  public function __construct() {
-    $uri = $this->getUri();
+  private $conn;
 
+  public function __construct() {
+    $this->conn = new Database();
+
+    $uri = $this->getUri();
     $uri = $this->sanitizeUri($uri);
+
     include_once 'D:\laragon\www\Likn\routes\web.php';
     
-    if(!$this->checkRoute($uri)) {
-      echo 'error';
-      // $this->execute($uri);
+    if(!$this->checkRoute($uri) && !$this->pageExists($uri)) {
+      echo 'route not found';
       die();
     }
 
@@ -50,21 +54,29 @@ class Core {
   }
 
   private function execute(string $uri) {
-    foreach($this->routesGet as $route) {
-      if($uri === $route['route']) {
-        $controller = $this->getController($route['call']);
-        $method = $this->getMethod($route['call']);
-        break;  
+    $params = [];
+    
+    if($this->pageExists($uri)) {
+      $data = $this->conn->selectOnly($uri);
+      $controller = 'App\Controller\PageController';
+      $method = 'redirect';
+      $params = $data;
+    } else {
+      foreach($this->routesGet as $route) {
+        if($uri === $route['route']) {
+          $controller = $this->getController($route['call']);
+          $method = $this->getMethod($route['call']);
+          break;  
+        }
       }
     }
 
-    // $controller = "App\Controller\\".$controller;
-    call_user_func_array([new $controller, $method], []);
+    call_user_func_array([new $controller, $method], [$params]);
   }
 
   private function getController($route) {
-    $controller = "App\Controller\\".explode($route, '@')[0];
-
+    $controller = "App\Controller\\".explode("@", $route)[0];
+    
     if(!class_exists($controller)){
       return "App\Controller\\PageController";
     }
@@ -83,6 +95,17 @@ class Core {
     return $method;
   }
 
+  public function pageExists(String $url) {
+    $conn = $this->conn;
+    $data = $conn->selectOnly($url);
+
+    if(!empty($data)) {
+      return true;      
+    }
+
+    return false;
+  }
+
   private function get(string $routeName, string $method) {
     if(!in_array($routeName, $this->routesGet)) {
       array_push($this->routesGet, [
@@ -92,5 +115,12 @@ class Core {
     }
   }
 
-
+  private function post(string $routeName, string $method) {
+    if(!in_array($routeName, $this->routesGet)) {
+      array_push($this->routesGet, [
+        "route" => $routeName,
+        "call" => $method
+      ]);
+    }
+  }
 }

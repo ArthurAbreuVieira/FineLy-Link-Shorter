@@ -3,12 +3,12 @@
 {% block title %} Teste {% endblock %}
 
 {% block content %}
-<main>
+<main class="bg-image">
   <div class="container">
     <div class="logo"></div>
     <div class="form">
-      <form action="./create" method="GET">
-        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" />
+      <form action="./short" method="POST">
+        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" name="url"/>
         <input class="submit-btn input" type="submit" value="Encurtar" />
       </form>
     </div>

@@ -101,7 +101,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+.bg-image {
   background-image: url("../img/wallpaper.png");
   background-size: cover;
   background-repeat: no-repeat;

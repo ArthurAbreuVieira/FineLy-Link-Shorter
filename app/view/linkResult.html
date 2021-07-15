@@ -1,0 +1,22 @@
+{% extends 'templates/base.html' %}
+
+{% block title %} Teste {% endblock %}
+
+{% block content %}
+<main>
+  <div class="container">
+    <div class="logo"></div>
+    <div class="form">
+      <form action="./short" method="POST">
+        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" name="url"/>
+        <input class="submit-btn input" type="submit" value="Encurtar" />
+      </form>
+    </div>
+    <div class="info">
+      <h3>Resultado: </h3>
+      <p>URL original: {{ original_url }}</p>
+      <p>URL encurtada: {{ shorted_url }}</p>
+    </div>
+  </div>
+</main>
+{% endblock %}
