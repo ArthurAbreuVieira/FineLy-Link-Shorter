@@ -57,7 +57,7 @@ class Core {
     $params = [];
     
     if($this->pageExists($uri)) {
-      $data = $this->conn->selectOnly($uri);
+      $data = $this->conn->selectOnly("links", "id", $uri);
       $controller = 'App\Controller\PageController';
       $method = 'redirect';
       $params = $data;
@@ -96,8 +96,12 @@ class Core {
   }
 
   public function pageExists(String $url) {
+    if(empty($url)) {
+      return false;
+    }
+
     $conn = $this->conn;
-    $data = $conn->selectOnly($url);
+    $data = $conn->selectOnly("links", "id", $url);
 
     if(!empty($data)) {
       return true;      
