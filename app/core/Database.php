@@ -8,8 +8,8 @@ class Database {
     $this->conn = new \PDO('mysql:host=localhost;dbname=FineLy', 'root', '');
   }
 
-  public function selectOnly($table, $collumn, $value) {
-    $sql = "SELECT * FROM $table WHERE $collumn = :value";
+  public function selectOnly($table, $collumn, $value, $select = '*') {
+    $sql = "SELECT $select FROM $table WHERE $collumn = :value";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':value', $value);
     if($stmt->execute()) {

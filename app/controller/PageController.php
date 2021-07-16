@@ -19,6 +19,13 @@ class PageController extends Controller{
     ####################################
     $this->load('signUp.html',[]);    
   }
+  
+  public function login() {
+    ####################################
+    #---- verificar usuario logado ----#
+    ####################################
+    $this->load('login.html',[]);    
+  }
 
   public function redirect($data) {
     $url = str_starts_with($data['original_url'], 'http') ? $data['original_url'] : 'https://'.$data['original_url']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!

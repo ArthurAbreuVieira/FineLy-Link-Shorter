@@ -33,7 +33,24 @@ class UserController extends Controller {
       "password" => $password
     ];
 
-    $this->model->createUser($values);
+    $this->model->signUpUser($values);
     header('Location: home');
+  }
+
+  public function login() {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if(empty($email) || empty($password)) {
+      echo "Preencha todos os campos!";
+      die();
+    }
+
+    $values = [
+      "email" => $email,
+      "password" => $password
+    ];
+
+    $this->model->loginUser($values);
   }
 }
