@@ -13,6 +13,16 @@ class UserController extends Controller {
   }
 
   public function signUp() {
+    if(self::userIsLoggedIn()) {
+      header('location: home');
+      die();
+    }
+
+    if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
+      header('location: signup');
+      die();
+    }
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -38,6 +48,16 @@ class UserController extends Controller {
   }
 
   public function login() {
+    if(self::userIsLoggedIn()) {
+      header("Location: home");
+      die();
+    }
+
+    if(!isset($_POST['email']) && !isset($_POST['password'])) {
+      header('location: login');
+      die();
+    }
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -51,6 +71,23 @@ class UserController extends Controller {
       "password" => $password
     ];
 
-    $this->model->loginUser($values);
+    if($this->model->loginUser($values)) {
+      $userData = $this->model->selectOnly('users', 'email', $email);
+      $_SESSION['user'] = [
+        "user_id" => $userData['id'],
+        "user_name" => $userData['name'],
+        "user_email" => $userData['email']
+      ];
+      header('Location: home');
+    } else {
+      echo 'dados invalidos.';
+    }
+  }
+
+  static public function userIsLoggedIn() {
+    if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+      return true;
+    }
+    return false;
   }
 }

@@ -10,14 +10,17 @@ class UserModel extends Database {
   }
   
   public function loginUser($values) {
-    $userEmail = $this->selectOnly('users', 'email', $values['email'], 'email')['email'];
+    $userEmail = $this->selectOnly('users', 'email', $values['email'], 'email');
+    if(!$userEmail) {
+      return false;
+    }
+    $userEmail = $userEmail['email'];
     $userPassword = $this->selectOnly('users', 'email', $values['email'], 'password')['password'];
+    var_dump($userEmail);
     
     if($userEmail === $values['email'] && password_verify($values['password'], $userPassword))  {
-      header('Location: home');
-      die();
-    } else {
-      echo 'dados invalidos.';
+      return true;
     }
+    return false;
   }
 }

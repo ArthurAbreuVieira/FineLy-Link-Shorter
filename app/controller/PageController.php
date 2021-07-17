@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Controller;
+use App\Controller\UserController;
 
 class PageController extends Controller{
   public function __construct() {
@@ -14,16 +15,20 @@ class PageController extends Controller{
   }
 
   public function signUp() {
-    ####################################
-    #---- verificar usuario logado ----#
-    ####################################
+    if(UserController::userIsLoggedIn()) {
+      header('location: home');
+      die();
+    }
+
     $this->load('signUp.html',[]);    
   }
   
   public function login() {
-    ####################################
-    #---- verificar usuario logado ----#
-    ####################################
+    if(UserController::userIsLoggedIn()) {
+      header("Location: home");
+      die();
+    }
+
     $this->load('login.html',[]);    
   }
 
