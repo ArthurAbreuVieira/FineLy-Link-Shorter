@@ -11,7 +11,12 @@ class PageController extends Controller{
   }
 
   public function index() {
-    $this->load('index.html',[]);
+    $params = [];
+    if(UserController::userIsLoggedIn()) {
+      $params = ["user" => $_SESSION['user']];
+    }
+
+    $this->load('index.html',$params);
   }
 
   public function signUp() {

@@ -3,6 +3,9 @@
 {% block title %} Teste {% endblock %}
 
 {% block content %}
+{% if user %}
+  {% include 'index.loggedin.html' %}
+{% else %}
 <main class="bg-image">
   <div class="container">
     <div class="logo"></div>
@@ -92,7 +95,7 @@
             <i class="fas fa-stream"></i>
           </div>
           <div class="card-title">
-            <h5>Todos os seus links juntos</h5>
+            <h5>Todos os sus links junteos</h5>
           </div>
         </div>
         <div class="card-content">
@@ -123,4 +126,5 @@
   </div>
 
 </section>
+{% endif %}
 {% endblock %}

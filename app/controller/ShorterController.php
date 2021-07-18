@@ -14,6 +14,11 @@ class ShorterController extends Controller{
   }
 
   public function index() {
+    if(!isset($_POST['url']) || empty($_POST['url'])){
+      $this->load('linkResult.html',["error" => 'empty_url']);
+      die(); 
+    }
+
     $url = $_POST['url'];
     $pageId = $this->short($url);
     $shortedUrl = "http://localhost/likn/".$pageId;

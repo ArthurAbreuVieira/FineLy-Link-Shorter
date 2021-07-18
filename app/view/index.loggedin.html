@@ -1,0 +1,46 @@
+{% extends 'templates/base.html' %}
+
+{% block title %} Teste {% endblock %}
+
+{% block content %}
+<main>
+  <h2>Olá, {{user.name|capitalize}}</h2>
+  <div class="container">
+    <h3>O que você precisa fazer?</h3>
+
+    <nav class="tools-container">
+
+      <div class="box">
+        <a href="./short" class="tool">
+          <i class="fas fa-link"></i>
+          <p>Encurtar um link</p>
+          <i class="far fa-question-circle"></i>
+        </a>
+
+        <a href="#" class="tool">
+          <i class="fas fa-chart-bar"></i>
+          <p>Monitorar um link</p>
+          <i class="far fa-question-circle"></i>
+        </a>
+      </div>
+
+      <div class="box">
+        <a href="#" class="tool">
+          <i class="fas fa-eye"></i>
+          <p>Ver meus links</p>
+          <i class="far fa-question-circle"></i>
+        </a>
+
+        <a href="#" class="tool">
+          <i class="fas fa-edit"></i>
+          <p>Editar um link</p>
+          <i class="far fa-question-circle"></i>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+
+
+</main>
+{% endblock %}

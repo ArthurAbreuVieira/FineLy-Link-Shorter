@@ -74,9 +74,9 @@ class UserController extends Controller {
     if($this->model->loginUser($values)) {
       $userData = $this->model->selectOnly('users', 'email', $email);
       $_SESSION['user'] = [
-        "user_id" => $userData['id'],
-        "user_name" => $userData['name'],
-        "user_email" => $userData['email']
+        "id" => $userData['id'],
+        "name" => $userData['name'],
+        "email" => $userData['email']
       ];
       header('Location: home');
     } else {

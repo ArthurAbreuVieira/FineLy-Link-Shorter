@@ -12,10 +12,14 @@
         <input class="submit-btn input" type="submit" value="Encurtar" />
       </form>
     </div>
-    <div class="info">
+    <div class="info"></div>
+    {% if error == 'empty_url' %}
+      <h3>Digite uma url no campo acima e clique em encurtar.</p>
+    {% else %}
       <h3>Resultado: </h3>
       <p>URL original: {{ original_url }}</p>
       <p>URL encurtada: {{ shorted_url }}</p>
+    {% endif %}
     </div>
   </div>
 </main>

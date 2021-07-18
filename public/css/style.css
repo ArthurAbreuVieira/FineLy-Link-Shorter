@@ -269,3 +269,65 @@ main {
   font-size: 30px;
   text-shadow: 2px 2px 10px black;
 }
+
+/* ############################################# */
+
+h2 {
+  z-index: 99;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px #0197a1;
+}
+
+.tools-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tool {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 250px;
+  height: 50px;
+
+  border: 1px solid #00aebb9f;
+  border-radius: 50px;
+  margin: 15px;
+  background-color: #1d1d1d;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px black;
+}
+
+.tool:hover {
+  border-color: #0cc042;
+  box-shadow: 1px 1px 10px #0cc042;
+}
+
+.tool .fas, .tool .far {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+
+  border-radius: 50%;
+}
+
+.tool .fas {
+  background-color: #1c9741;
+}
+
+.tool .far {
+  color: #2ebd59;
+}
+
+.tool p {
+  position: relative;
+  top: -13px;
+  padding: 0 7px;
+}
