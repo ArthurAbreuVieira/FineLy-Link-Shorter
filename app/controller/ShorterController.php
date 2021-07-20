@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Controller;
+use App\Controller\UserController as User;
 use App\Model\ShorterModel;
 
 class ShorterController extends Controller{
@@ -20,10 +21,12 @@ class ShorterController extends Controller{
     }
 
     $url = $_POST['url'];
+    $owner = User::userIsLoggedIn() ? $_SESSION['user']['id'] : NULL;
     $pageId = $this->short($url);
     $shortedUrl = "http://localhost/likn/".$pageId;
     $data = [
       'id' => $pageId,
+      'owner' => $owner,
       'original_url' => $url,
       'shorted_url' => $shortedUrl,
     ];
