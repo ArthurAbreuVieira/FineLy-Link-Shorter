@@ -1,0 +1,31 @@
+{% extends 'templates/base.html' %}
+
+{% block title %} Teste {% endblock %}
+
+{% block content %}
+<main>
+  <h2>Olá, {{user.name|capitalize}}</h2>
+  <div style="width: 70%;" class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Código do link</td>
+          <td>URL original</td>
+          <td>URL encurtada</td>
+          <td>Ações</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for link in links %}
+        <tr>
+          <td>{{link.id}}</td>
+          <td data-js="original_url">{{link.original_url}}</td>
+          <td>{{link.shorted_url}}</td>
+          <td>EDIT / DELETE</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+{% endblock %}

@@ -17,6 +17,19 @@ class Database {
       return $data;
     }
   }
+  
+  public function selectMany($table, $collumn, $value, $select = '*') {
+    $sql = "SELECT $select FROM $table WHERE $collumn = :value";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':value', $value);
+    if($stmt->execute()) {
+      $data = [];
+      while($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+        $data[] = $row;
+      }
+      return $data;
+    }
+  }
 
   public function insert($table, $values) {
     $sql = "INSERT INTO $table({{collumns}}) VALUES({{values}})";

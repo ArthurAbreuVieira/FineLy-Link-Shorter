@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Core\Controller;
 use App\Controller\UserController;
+use App\Controller\LinkController;
+
+// This controller only redirects to non-complex pages;
 
 class PageController extends Controller{
   public function __construct() {
@@ -34,7 +37,7 @@ class PageController extends Controller{
       die();
     }
 
-    $this->load('login.html',[]);    
+    $this->load('login.html',[]);
   }
 
   public function redirect($data) {
