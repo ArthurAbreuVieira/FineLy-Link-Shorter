@@ -18,9 +18,11 @@ class LinkController extends Controller{
       header('location: home');
       die();
     }
+    $user = $_SESSION['user'];
     $links = $this->model->getLinksFromUser();
     $this->load('my_links.html', [
-      "links" => $links
+      "links" => $links,
+      "user" => $user
     ]);
   }
 

@@ -84,6 +84,13 @@ class UserController extends Controller {
     }
   }
 
+  public function logout()  {
+    unset($_SESSION['user']);
+    session_destroy();
+    header("Location: ./home");
+    die();
+  }
+
   static public function userIsLoggedIn() {
     if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
       return true;
