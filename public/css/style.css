@@ -336,70 +336,125 @@ h2 {
 
 /* mylinks */
 
-.links-page {
-  justify-content: start !important;
-}
-
-.table-container {
-  padding: 20px;
-
+.list-container {
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+.list {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
 }
 
-.table {
-  border: 2px solid #0cc042;
-  
+.list li {
   width: 100%;
-  box-shadow: 0px 0px 30px #00852898;
+  min-height: 70px;
+  background-color: #2e2d31;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px rgb(0, 0, 0) solid;
+  padding: 25px 0;
 }
 
-.table thead td {
-  background-color: #008528;
-  border: 1px solid #008528;
-  padding: 15px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 1px 1px 10px #000;
-
+.group {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.table tbody tr td:first-child {
-  width: 10%;
+.code, .link, .expand {
+  display: flex;
+  flex-direction: column;
 }
 
-.table tbody tr td:nth-child(2) {
-  max-width: 350px;
-  overflow: hidden;
+.expand button {
+  background-color: transparent;
 }
 
-.table tbody tr td:nth-child(3) {
-  width: 30%;
-  overflow: hidden;
+.hide {
+  display: none;
 }
 
-.table tbody tr td:last-child {
-  /* width: 25%; */
-  
-  width: 200px;
-  height: 70px;
+.show {
+  margin-top: 15px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn-showmore {
+  border: 2px white solid;
+  width: 100px;
+  height: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  background: white !important;
+  color: black;
+  font-weight: bolder;
+
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.table tbody td {
-  border: 1px solid #008528;
-  padding: 15px;
-  text-align: start;
+.btn-showmore i {
+  position: relative;
+  top: -2px;
+  color: black;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+}
+
+.block {
+  width: 40%;
+  padding-left: 25%;
+}
+
+.big-block {
+  width:60%;
+  overflow: hidden;
+}
+
+.strip {
+  background-color: #464646 !important;
+}
+
+.circle-container {
+  border: 2px white solid;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 15px;
+}
+/* ----------------------------------------------------- */
+.links-page {
+  justify-content: start !important;
 }
 
 .btn-action {
   height: 30px;
+  width: 100px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -408,12 +463,10 @@ h2 {
 }
 
 .btn-edit {
-  width: 45%;
   background-color: #008528;
 }
 
 .btn-delete {
-  width: 50%;
   background-color: red;
 }
 

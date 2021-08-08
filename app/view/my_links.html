@@ -6,32 +6,61 @@
 <main class="links-page">
   <h2>Olá, {{user.name|capitalize}}.</h2>
   <h3>Abaixo estão todos os seus links encurtados</h3>
-  <div style="width: 70%;" class="table-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <td>Código do link</td>
-          <td>URL original</td>
-          <td>URL encurtada</td>
-          <td>Ações</td>
-        </tr>
-      </thead>
-      <tbody>
-        {% for link in links %}
-        <tr>
-          <td><a href="{{link.shorted_url}}">{{link.id}}</a></td>
-          <td data-js="original_url"><a href="{{link.original_url}}">{{link.original_url}}</a></td>
-          <td><a href="{{link.shorted_url}}">{{link.shorted_url}}</a></td>
-          <td>
-            <button class="btn-action btn-edit">
-              <a href="./edit/{{link.id}}">EDITAR</a>
+  <div class="list-container">
+    <ul class="list">
+      {% for link in links %}
+      <li>
+        <div class="group">
+          <div class="code">
+            <div>CODIGO:</div>
+            <div>A4dw94</div>
+          </div>
+          <div class="link">
+            <div>Link original:</div>
+            <div>http://localhost/likn/mylinks</div>
+          </div>
+          <div class="expand">
+            <button class="btn-showmore" data-js="showBtn">
+              Ver mais
+              <i class="fas fa-sort-down"></i>
             </button>
+          </div>
+        </div>
+        <div class="hide show">
+          <div class="strip line">
+            <a href="" class="btn-showmore" style="width:300px">VER INFORMAÇÕES DETALHADAS</a>
+          </div>
+          <div class="line space">
+            <span class="block">Link original:</span>
+            <span class="big-block">http://localhost/likn/mylinks/localhost/likn/mylinks/localhost/likn/</span>
+          </div>
+          <div class="strip line space"> 
+            <span class="block">Link encurtado:</span>
+            <span class="big-block">http://localhost/likn</span>
+          </div>
+          <div class="line">
+            <button class="btn-action btn-edit">EDITAR</button>
             <button class="btn-action btn-delete">DELETAR</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </main>
+<script>
+  const showBtn = document.querySelectorAll('[data-js=showBtn]');
+  const divs = document.querySelectorAll('.hide');
+  for(let i=0;i<showBtn.length;i++){
+    showBtn[i].addEventListener('click', ()=>{
+      if(divs[i].classList.contains("hide")) {
+        divs[i].classList.remove("hide");
+        divs[i].classList.add("show");
+      } else {
+        divs[i].classList.remove("show");
+        divs[i].classList.add("hide");
+      }
+    });
+  }
+</script>
 {% endblock %}
