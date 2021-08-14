@@ -1,44 +1,42 @@
-{% extends 'templates/base.html' %}
-
-{% block title %} Teste {% endblock %}
-
-{% block content %}
-<main class="links-page">
+{% extends 'templates/base.html' %} {% block title %} Teste {% endblock %} {% block content %}
+<main class="w100 mh100 flex-start-collumn" style="padding: 150px 0;">
   <h2>Olá, {{user.name|capitalize}}.</h2>
   <h3>Abaixo estão todos os seus links encurtados</h3>
-  <div class="list-container">
-    <ul class="list">
+  <div style="width: 80%;" class="flex-center">
+    <ul class="w100 flex-center-collumn" id="list">
       {% for link in links %}
-      <li>
-        <div class="group">
-          <div class="code">
+      <li class="w100 flex-j-center-collumn">
+        <div class="h100 flex-j-evenly">
+          <div class="flex-collumn" style="border-right: 2px solid green;padding-right: 25px;">
             <div>CODIGO:</div>
-            <div>A4dw94</div>
+            <div><a href="">A4dw94</a></div>
           </div>
-          <div class="link">
+          <div class="flex-collumn overflow-hidden" style="width:50%">
             <div>Link original:</div>
-            <div>http://localhost/likn/mylinks</div>
+            <div>
+              http://localhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinks
+            </div>
           </div>
-          <div class="expand">
-            <button class="btn-showmore" data-js="showBtn">
+          <div class="flex-collumn">
+            <button style="padding: 5px 15px;" class="btn gradient radius txt-shadow" data-js="showBtn">
               Ver mais
               <i class="fas fa-sort-down"></i>
             </button>
           </div>
         </div>
-        <div class="hide show">
-          <div class="strip line">
-            <a href="" class="btn-showmore" style="width:300px">VER INFORMAÇÕES DETALHADAS</a>
+        <div id="details" class="hide show flex-evenly-collumn overflow-hidden">
+          <div class="strip">
+            <a href="" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
           </div>
-          <div class="line space">
-            <span class="block">Link original:</span>
-            <span class="big-block">http://localhost/likn/mylinks/localhost/likn/mylinks/localhost/likn/</span>
+          <div class="w100 flex-start-collumn strip">
+            <span class="main-green" style="font-size: 20px;font-weight: bold;">Link original:</span>
+            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">http://locahttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhthttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/likntp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknlhost/likn/public/css/style.css</a>
           </div>
-          <div class="strip line space"> 
-            <span class="block">Link encurtado:</span>
-            <span class="big-block">http://localhost/likn</span>
+          <div class="strip w100 flex-start-collumn">
+            <span class="main-green" style="font-size: 20px;font-weight: bold;">Link encurtado:</span>
+            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">http://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/likn</a>
           </div>
-          <div class="line">
+          <div class="strip">
             <button class="btn-action btn-edit">EDITAR</button>
             <button class="btn-action btn-delete">DELETAR</button>
           </div>
@@ -51,9 +49,9 @@
 <script>
   const showBtn = document.querySelectorAll('[data-js=showBtn]');
   const divs = document.querySelectorAll('.hide');
-  for(let i=0;i<showBtn.length;i++){
-    showBtn[i].addEventListener('click', ()=>{
-      if(divs[i].classList.contains("hide")) {
+  for (let i = 0; i < showBtn.length; i++) {
+    showBtn[i].addEventListener('click', () => {
+      if (divs[i].classList.contains("hide")) {
         divs[i].classList.remove("hide");
         divs[i].classList.add("show");
       } else {

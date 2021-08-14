@@ -4,15 +4,15 @@
 
 {% block content %}
 {% if user %}
-  {% include 'index.loggedin.html' %}
+{% include 'index.loggedin.html' %}
 {% else %}
-<main class="bg-image">
-  <div class="container">
-    <div class="logo"></div>
-    <div class="form">
-      <form action="./short" method="POST">
-        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" name="url"/>
-        <input class="submit-btn input" type="submit" value="Encurtar" />
+<main class="w100 h100 flex-center-collumn bg-image">
+  <div class="flex-center-collumn container box-shadow">
+    <div class="logo"><img src="" alt="LOGO"></div>
+    <div class="w100 flex">
+      <form action="./short" method="POST" class="w100 flex-center-collumn">
+        <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url" />
+        <input class="btn input gradient radius txt-shadow" type="submit" value="Encurtar" />
       </form>
     </div>
     <div class="info">
@@ -20,14 +20,20 @@
       <p>Uma ferramenta que serve para encurtar links. Basta digitar uma URL longa no campo acima e a mesma será
         reduzida a um novo link curto, facilitando o compartilhamento.</p>
       <p>FineLy não requer que seja registrado para encurtar links mas quem se cadastra conta com mais ferramentas
-        utéis. <a class="en-link" href="#features">Descubra agora os beneficios de criar uma conta gratuitamente</a>.</p>
+        utéis. <a class="link-nav" href="#features">Descubra agora os beneficios de criar uma conta gratuitamente</a>.
+      </p>
     </div>
   </div>
+  <h6><strong>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</strong></h6>
+  <h6><strong>CRIAR EFEITO PARALAX</strong></h6>
+  <h6><strong>CRIAR EFEITO PARALAX</strong></h6>
+  <h6><strong>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</strong></h6>
 </main>
-<section id="features" class="features-section">
-  <div class="box">
-    <h3>Beneficios de criar uma conta</h3>
-    <p>Criando uma conta você tem acesso a funcionalidades gratuitas para acompanhar o que acontece com seu link, como
+<section id="features" class="w100 h100 flex-center">
+  <div>
+    <h3 class="txt-shadow main-green" style="font-size: 40px;">Beneficios de criar uma conta</h3>
+    <p style="margin-top: 25px;">Criando uma conta você tem acesso a funcionalidades gratuitas para acompanhar o que
+      acontece com seu link, como
       por exemplo:</p>
     <ul>
       <li>Salvar todos os seus links encurtados na sua conta.</li>
@@ -36,95 +42,104 @@
       <li>Alterar o endereço de redirecionamento do seu link depois de criado</li>
       <li>Utilizar novas funcionalidades implementadas futuramente</li>
     </ul>
-    <button style="margin-top: 25px;width: 50%;" class="input submit-btn">
-      <a href="./signup">Cadastrar gratuitamente</a>
+    <button data-js="signup_btn" style="margin-top: 25px;width: 50%;" class="input gradient btn radius txt-shadow">
+      Cadastrar gratuitamente
     </button>
   </div>
 </section>
-<section id="" class="features-section">
-  
-  <div class="cards">
-    <div class="card-container-row">
+<section id="cards" class="w100 h100 flex-center">
+
+  <div class="flex-collumn">
+    <div class="flex">
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <i class="fas fa-link"></i>
+        <div class="card-header flex w100">
+          <div class="card-icon flex-center">
+            <i class="fas fa-link txt-shadow"></i>
           </div>
-          <div class="card-title">
+          <div class="card-title flex-center h100">
             <h5>Simples</h5>
           </div>
         </div>
-        <div class="card-content">
+        <div>
           <p>Encurte qualquer link com FineLy facilmente idependentemente do tamanho.</p>
         </div>
       </div>
-    
+
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <i class="fas fa-chart-bar"></i>
+        <div class="card-header flex w100">
+          <div class="card-icon flex-center">
+            <i class="fas fa-chart-bar txt-shadow"></i>
           </div>
-          <div class="card-title">
+          <div class="card-title flex-center h100">
             <h5>Monitore</h5>
           </div>
         </div>
-        <div class="card-content">
+        <div>
           <p>Saiba quando e quantas pessoas clicaram no link além de saber as informações de criação do seu link.</p>
         </div>
       </div>
     </div>
-    
-    <div class="card-container-row">
+
+    <div class="flex">
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <i class="fas fa-pencil-alt"></i>
+        <div class="card-header flex w100">
+          <div class="card-icon flex-center">
+            <i class="fas fa-pencil-alt txt-shadow"></i>
           </div>
-          <div class="card-title">
+          <div class="card-title flex-center h100">
             <h5>Edite</h5>
           </div>
         </div>
-        <div class="card-content">
+        <div>
           <p>Edite o link de redirecionamento sem necessidade de criar um novo.</p>
         </div>
       </div>
-      
+
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <i class="fas fa-stream"></i>
+        <div class="card-header flex w100">
+          <div class="card-icon flex-center">
+            <i class="fas fa-stream txt-shadow"></i>
           </div>
-          <div class="card-title">
+          <div class="card-title flex-center h100">
             <h5>Todos os sus links junteos</h5>
           </div>
         </div>
-        <div class="card-content">
+        <div>
           <p>Seus links ficam todos em um só lugar para facilmente vizualizar as informações que precisa.</p>
         </div>
       </div>
     </div>
   </div>
 
-  
+
   <div class="">
     <div class="card" style="height: 300px;">
-      <div class="card-header">
-        <div class="card-icon">
-          <i class="fas fa-star"></i>
+      <div class="card-header flex w100">
+        <div class="card-icon flex-center">
+          <i class="fas fa-star txt-shadow"></i>
         </div>
-        <div class="card-title">
+        <div class="card-title flex-center h100">
           <h5>Gratuito</h5>
         </div>
       </div>
-      <div class="card-content">
-        <p>Crie quantos links encurtados quiser e desfrute de todas as funcionalidades criando uma conta gratuitamente.</p>
-        <button style="margin-top:30px;width: 100%;" class="input submit-btn">
-          <a href="./signup">Cadastrar gratuitamente</a>
+      <div>
+        <p>Crie quantos links encurtados quiser e desfrute de todas as funcionalidades criando uma conta gratuitamente.
+        </p>
+        <button data-js="signup_btn" style="margin-top:30px;width: 100%;" class="input btn gradient txt-shadow">
+          Cadastrar gratuitamente
         </button>
       </div>
     </div>
   </div>
 
 </section>
+<script>
+  const signupBtn = document.querySelectorAll("[data-js=signup_btn]");
+  signupBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.location = "signup";
+    });
+  });  
+</script>
 {% endif %}
 {% endblock %}

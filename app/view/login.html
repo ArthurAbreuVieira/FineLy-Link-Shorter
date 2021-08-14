@@ -3,14 +3,14 @@
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
-<main>
-  <div class="container">
-    <div class="logo"></div>
-    <div class="form">
-      <form action="./login-user" method="POST">
-        <input class="link-input input" type="email" placeholder="Email" name="email" required/>
-        <input class="link-input input" type="password" placeholder="senha" name="password" required/>
-        <input class="submit-btn input" type="submit" value="Fazer Login" />
+<main class="w10 h100 flex-center-collumn">
+  <div class="container flex-center-collumn">
+    <div class="logo"><img src="" alt="logo"></div>
+    <div class="w100 flex">
+      <form action="./login-user" method="POST" class="w100 flex-center-collumn">
+        <input class="link-input input radius" type="email" placeholder="Email" name="email" required/>
+        <input class="link-input input radius" type="password" placeholder="Senha" name="password" required/>
+        <input class="btn input gradient txt-shadow radius" type="submit" value="Fazer Login" />
       </form>
     </div>
     <div class="info">

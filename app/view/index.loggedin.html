@@ -3,38 +3,38 @@
 {% block title %} Teste {% endblock %}
 
 {% block content %}
-<main>
+<main class="w100 h100 flex-center-collumn">
   <h2>Olá, {{user.name|capitalize}}</h2>
-  <div class="container">
+  <div class="container flex-center-collumn">
     <h3>O que você precisa fazer?</h3>
 
-    <nav class="tools-container">
+    <nav class="flex-center w100">
 
-      <div class="box">
-        <a href="./short" class="tool">
-          <i class="fas fa-link"></i>
+      <div>
+        <a href="./short" class="flex-between box-shadow radius tool btn">
+          <i class="fas fa-link txt-shadow"></i>
           <p>Encurtar um link</p>
-          <i class="far fa-question-circle"></i>
+          <i class="far fa-question-circle txt-shadow"></i>
         </a>
 
-        <a href="#" class="tool">
-          <i class="fas fa-chart-bar"></i>
+        <a href="./" class="flex-between box-shadow radius tool btn">
+          <i class="fas fa-chart-bar txt-shadow"></i>
           <p>Monitorar um link</p>
-          <i class="far fa-question-circle"></i>
+          <i class="far fa-question-circle txt-shadow"></i>
         </a>
       </div>
 
-      <div class="box">
-        <a href="./mylinks" class="tool">
-          <i class="fas fa-eye"></i>
+      <div>
+        <a href="./mylinks" class="flex-between box-shadow radius tool btn">
+          <i class="fas fa-eye txt-shadow"></i>
           <p>Ver meus links</p>
-          <i class="far fa-question-circle"></i>
+          <i class="far fa-question-circle txt-shadow"></i>
         </a>
 
-        <a href="#" class="tool">
-          <i class="fas fa-edit"></i>
+        <a href="./" class="flex-between box-shadow radius tool btn">
+          <i class="fas fa-edit txt-shadow"></i>
           <p>Editar um link</p>
-          <i class="far fa-question-circle"></i>
+          <i class="far fa-question-circle txt-shadow"></i>
         </a>
       </div>
 

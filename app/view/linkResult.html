@@ -3,13 +3,13 @@
 {% block title %} Teste {% endblock %}
 
 {% block content %}
-<main>
-  <div class="container">
-    <div class="logo"></div>
-    <div class="form">
-      <form action="./short" method="POST">
-        <input class="link-input input" type="text" placeholder="www.digiteseulink.com" name="url"/>
-        <input class="submit-btn input" type="submit" value="Encurtar" />
+<main class="w100 h100 flex-center-collumn">
+  <div class="container flex-center-collumn">
+    <div class="logo"><img src="" alt="logo"></div>
+    <div class="w100 flex">
+      <form action="./short" method="POST" class="w100 flex-center-collumn">
+        <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url"/>
+        <input class="btn input gradient txt-shadow radius" type="submit" value="Encurtar" />
       </form>
     </div>
     <div class="info"></div>

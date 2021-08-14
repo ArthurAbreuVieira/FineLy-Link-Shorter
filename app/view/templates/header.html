@@ -1,32 +1,30 @@
-<header>
+<header class="flex-between">
   <div class="logo">
     <img src="logo" alt="Logo Likn" />
   </div>
-  <div class="menu">
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Link Info</a>
-        </li>
-        <li>
-          <a href="#">Ver meu links</a>
-        </li>
-        {% if user %}
-        <li>
-          <a href="./signup" class="submit-btn">Meu perfil</a>
-        </li>
-        <li>
-          <a href="./logout" class="submit-btn">Sair</a>
-        </li>
-        {% else %}
-        <li>
-          <a href="./signup" class="submit-btn">Cadastrar</a>
-        </li>
-        <li>
-          <a href="./login">Entrar</a>
-        </li>
-        {% endif %}
-      </ul>
-    </nav>
-  </div>
+  <nav class="header-nav h100">
+    <ul class="flex-evenly w100 h100">
+      <li class="flex-center h100">
+        <a href="#" class="link-nav txt-shadow">Link Info</a>
+      </li>
+      <li class="flex-center h100">
+        <a href="#" class="link-nav txt-shadow">Ver meu links</a>
+      </li>
+      {% if user %}
+      <li class="flex-center h100">
+        <a href="./signup" class="btn gradient txt-shadow">Meu perfil</a>
+      </li>
+      <li class="flex-center h100">
+        <a href="./logout" class="btn gradient txt-shadow">Sair</a>
+      </li>
+      {% else %}
+      <li class="flex-center h100">
+        <a href="./signup" class="btn gradient txt-shadow">Cadastrar</a>
+      </li>
+      <li class="flex-center h100">
+        <a href="./login" class="btn gradient txt-shadow">Entrar</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
 </header>
