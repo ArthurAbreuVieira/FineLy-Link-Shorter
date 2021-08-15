@@ -1,5 +1,6 @@
 {% extends 'templates/base.html' %}
 
+{% block BASE %}http://localhost/likn/{% endblock %}
 {% block title %} Teste {% endblock %}
 
 {% block content %}
@@ -17,7 +18,7 @@
           <i class="far fa-question-circle txt-shadow"></i>
         </a>
 
-        <a href="./" class="flex-between box-shadow radius tool btn">
+        <a href="./details" class="flex-between box-shadow radius tool btn">
           <i class="fas fa-chart-bar txt-shadow"></i>
           <p>Monitorar um link</p>
           <i class="far fa-question-circle txt-shadow"></i>

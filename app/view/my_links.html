@@ -1,4 +1,9 @@
-{% extends 'templates/base.html' %} {% block title %} Teste {% endblock %} {% block content %}
+{% extends 'templates/base.html' %}
+
+{% block BASE %}http://localhost/likn/{% endblock %}
+{% block title %} Teste {% endblock %} 
+
+{% block content %}
 <main class="w100 mh100 flex-start-collumn" style="padding: 150px 0;">
   <h2>Olá, {{user.name|capitalize}}.</h2>
   <h3>Abaixo estão todos os seus links encurtados</h3>

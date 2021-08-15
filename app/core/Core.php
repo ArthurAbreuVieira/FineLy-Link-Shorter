@@ -7,6 +7,7 @@ use App\Core\Database;
 class Core {
   private $routesGet = [];
   private $conn;
+  private $currentRoute;
 
   public function __construct() {
     $this->conn = new Database();
@@ -14,6 +15,8 @@ class Core {
     $uri = $this->getUri();
     $uri = $this->sanitizeUri($uri);
 
+    
+    
     include_once 'D:\laragon\www\Likn\routes\web.php';
     
     if(!$this->checkRoute($uri) && !$this->pageExists($uri)) {
@@ -21,7 +24,11 @@ class Core {
       die();
     }
 
-    $this->execute($uri);
+    if($this->pageExists($uri)) {
+      $this->execute([$this->pageExists($uri)]);
+    } else {
+      $this->execute($this->checkRoute($uri));
+    }
   }
 
   private function getUri() {
@@ -46,37 +53,56 @@ class Core {
   
   private function checkRoute(string $uri) {
     foreach($this->routesGet as $route) {
+      
       if(in_array($uri, $route)) {
-        return true;
+        $this->currentRoute = $route;
+        return [$uri, $route];
       }
+      
+      if(preg_match('/{.*}/', $route['route'], $match)) {
+        $match = $match[0];
+        $match = substr($route['route'], 0, strpos($route['route'], $match));
+        $match = substr($match, 0, -1);
+        if(str_starts_with($uri, $match)) {
+          $uri = $match;
+          $route['route'] = $match;
+        }
+      }
+
+      if(in_array($uri, $route)) {
+        $this->currentRoute = $route;
+        return [$uri, $route];
+      }
+      
     }
     return false;
   }
 
-  private function execute(string $uri) {
+  private function execute(array $route) {
     $params = [];
     
-    if($this->pageExists($uri)) {
-      $data = $this->conn->selectOnly("links", "id", $uri);
+    if($this->pageExists($route[0])) {
+      $data = $this->conn->selectOnly("links", "id", $route[0]);
       $controller = 'App\Controller\PageController';
       $method = 'redirect';
       $params = $data;
     } else {
-      foreach($this->routesGet as $route) {
-        if($uri === $route['route']) {
-          $controller = $this->getController($route['call']);
-          $method = $this->getMethod($route['call']);
-          break;  
-        }
-      }
+      $controller = $this->getController($route[1]['call']);
+      $method = $this->getMethod($route[1]['call']);
     }
+
+    $params["base"] = "http://localhost/likn";
+
+    // echo '<pre>';
+    // print_r($params);
+    // die();
 
     call_user_func_array([new $controller, $method], [$params]);
   }
 
   private function getController($route) {
     $controller = "App\Controller\\".explode("@", $route)[0];
-    
+
     if(!class_exists($controller)){
       return "App\Controller\\PageController";
     }
@@ -95,16 +121,16 @@ class Core {
     return $method;
   }
 
-  public function pageExists(String $url) {
-    if(empty($url)) {
+  public function pageExists(String $uri) {
+    if(empty($uri)) {
       return false;
     }
 
     $conn = $this->conn;
-    $data = $conn->selectOnly("links", "id", $url);
+    $data = $conn->selectOnly("links", "id", $uri);
 
     if(!empty($data)) {
-      return true;      
+      return $uri;      
     }
 
     return false;

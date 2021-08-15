@@ -13,7 +13,7 @@ class LinkController extends Controller{
     $this->model = new LinkModel();
   }
 
-  public function getMyLinks() {
+  public function getMyLinksPage() {
     if(!UserController::userIsLoggedIn()) {
       header('location: home');
       die();
@@ -24,6 +24,17 @@ class LinkController extends Controller{
       "links" => $links,
       "user" => $user
     ]);
+  }
+
+  public function linkDetailsPage() {
+    echo "<pre>";
+    echo "ESTOU NA ROTA DETAILS".PHP_EOL;
+    $uri = $_SERVER['REQUEST_URI'];
+    $uri = array_filter(explode('/', $uri));
+    $uri = array_values($uri);
+    var_dump($uri);
+    
+    die();
   }
 
   public function shortLink() {

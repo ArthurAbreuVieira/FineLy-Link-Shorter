@@ -8,5 +8,6 @@ $this->post("signup-user", "UserController@signUp");
 $this->get("login", "PageController@login");
 $this->get("logout", "UserController@logout");
 $this->post("login-user", "UserController@login");
-$this->get("mylinks", "LinkController@getMyLinks");
+$this->get("mylinks", "LinkController@getMyLinksPage");
+$this->get("details", "LinkController@linkDetailsPage");
 
