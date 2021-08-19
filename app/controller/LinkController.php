@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Core\Controller;
 use App\Model\LinkModel;
 
-class LinkController extends Controller{
+class LinkController extends Controller {
   
   private $model;
 
@@ -27,14 +27,16 @@ class LinkController extends Controller{
   }
 
   public function linkDetailsPage() {
-    echo "<pre>";
-    echo "ESTOU NA ROTA DETAILS".PHP_EOL;
-    $uri = $_SERVER['REQUEST_URI'];
-    $uri = array_filter(explode('/', $uri));
-    $uri = array_values($uri);
-    var_dump($uri);
+    if(false) {
+      echo "<pre>";
+      echo "ESTOU NA ROTA DETAILS".PHP_EOL;
+      $uri = $_SERVER['REQUEST_URI'];
+      $uri = array_filter(explode('/', $uri));
+      $uri = array_values($uri);
+      var_dump($uri);
+    }
     
-    die();
+    $this->load('details.html', []);
   }
 
   public function shortLink() {
