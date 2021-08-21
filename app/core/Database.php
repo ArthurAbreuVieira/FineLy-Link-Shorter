@@ -62,4 +62,11 @@ class Database {
     $stmt->bindValue(":whereValue", $whereValue);
     $stmt->execute();
   }
+
+  public function delete($table, $collumn, $value) {
+    $sql = "DELETE FROM $table WHERE $collumn = :value";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(":value", $value);
+    $stmt->execute();
+  }
 }
