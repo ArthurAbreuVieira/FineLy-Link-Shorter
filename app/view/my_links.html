@@ -6,6 +6,7 @@
 {% block content %}
 <main class="w100 mh100 flex-start-collumn" style="padding: 150px 0;">
   <h2>Olá, {{user.name|capitalize}}.</h2>
+  <div>ESSE FOI SEU ULTIMO LINKS ENCURTADO</div>
   <h3>Abaixo estão todos os seus links encurtados</h3>
   <div style="width: 80%;" class="flex-center">
     <ul class="w100 flex-center-collumn" id="list">
@@ -14,12 +15,12 @@
         <div class="h100 flex-j-evenly">
           <div class="flex-collumn" style="border-right: 2px solid green;padding-right: 25px;">
             <div>CODIGO:</div>
-            <div><a href="">A4dw94</a></div>
+            <div><a href="">{{link.id}}</a></div>
           </div>
           <div class="flex-collumn overflow-hidden" style="width:50%">
-            <div>Link original:</div>
+            <div>Redirecionamento:</div>
             <div>
-              http://localhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinkslocalhost/likn/mylinks
+              {{link.redirect}}
             </div>
           </div>
           <div class="flex-collumn">
@@ -34,12 +35,12 @@
             <a href="" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
           </div>
           <div class="w100 flex-start-collumn strip">
-            <span class="main-green" style="font-size: 20px;font-weight: bold;">Link original:</span>
-            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">http://locahttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhthttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/likntp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknlhost/likn/public/css/style.css</a>
+            <span class="main-green" style="font-size: 20px;font-weight: bold;">Redirecionamento:</span>
+            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.redirect}}</a>
           </div>
           <div class="strip w100 flex-start-collumn">
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Link encurtado:</span>
-            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">http://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/liknhttp://localhost/likn</a>
+            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.shorted}}</a>
           </div>
           <div class="strip">
             <button class="btn-action btn-edit">EDITAR</button>

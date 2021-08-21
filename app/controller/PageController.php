@@ -41,7 +41,7 @@ class PageController extends Controller{
   }
 
   public function redirect($data) {
-    $url = str_starts_with($data['original_url'], 'http') ? $data['original_url'] : 'https://'.$data['original_url']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!
+    $url = str_starts_with($data['redirect'], 'http') ? $data['redirect'] : 'https://'.$data['redirect']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!
     header('location:'.$url);
   }
 }

@@ -15,12 +15,28 @@ class LinkModel extends Database {
   public function getLinksFromUser() {
     $user = $_SESSION['user']['id'];
     $links = $this->selectMany('links', 'owner', $user);
-
-
-    // var_dump($links);
-    // die();
-
     
+    foreach ($links as $key => $link) {
+      $date = new \DateTime($link['created_at']);
+      $date = $date->format('d-m-Y H:i:s');
+      $links[$key]['created_at'] = $date;
+    }
+
     return $links;
+  }
+
+  public function getLinkData($link_code) {
+    $owner = User::userIsLoggedIn() ? $_SESSION['user']['id'] : 0;
+    $linkData = $this->selectOnly('links', 'id', $link_code);
+    if(!empty($linkData)) {
+      if($linkData['owner'] === $owner) {
+        $date = new \DateTime($linkData['created_at']);
+        $date = $date->format('d-m-Y H:i:s');
+        $linkData['created_at'] = $date;
+
+        return $linkData;
+      }
+    }
+    return;
   }
 }

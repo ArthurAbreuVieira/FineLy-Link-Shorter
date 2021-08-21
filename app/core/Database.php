@@ -16,6 +16,7 @@ class Database {
       $data = $stmt->fetch(\PDO::FETCH_ASSOC);
       return $data;
     }
+    return false;
   }
   
   public function selectMany($table, $collumn, $value, $select = '*') {
@@ -45,6 +46,10 @@ class Database {
 
     $sql = str_replace("{{collumns}}", $collumns, $sql);
     $sql = str_replace("{{values}}", $str_values, $sql);
+
+    if(str_contains($sql,"'NOW()'")) {
+      $sql = str_replace("'NOW()'", "NOW()", $sql);
+    }
 
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();

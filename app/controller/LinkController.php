@@ -13,7 +13,7 @@ class LinkController extends Controller {
     $this->model = new LinkModel();
   }
 
-  public function getMyLinksPage() {
+  public function myLinksPage() {
     if(!UserController::userIsLoggedIn()) {
       header('location: home');
       die();
@@ -26,17 +26,31 @@ class LinkController extends Controller {
     ]);
   }
 
-  public function linkDetailsPage() {
-    if(false) {
-      echo "<pre>";
-      echo "ESTOU NA ROTA DETAILS".PHP_EOL;
-      $uri = $_SERVER['REQUEST_URI'];
-      $uri = array_filter(explode('/', $uri));
-      $uri = array_values($uri);
-      var_dump($uri);
+  public function linkDetailsPage() {    
+    if(!UserController::userIsLoggedIn()) {
+      header('location: http://localhost/likn/home');
+      die();
     }
-    
-    $this->load('details.html', []);
+
+    $uri = $_GET['uri'];
+    $uri = array_filter(explode('/', $uri));
+    $uri = array_values($uri);
+
+    $data = [];
+
+    if(isset($uri[1]) && !empty($uri[1])) {
+      $data["code"] = $uri[1];
+      $linkData = $this->model->getLinkData($data['code']);
+      if(empty($linkData)) {
+        header('location: http://localhost/likn/home');
+        die();
+      }
+      $date = str_replace(['-', ' '], ['/', ' - '], $linkData['created_at']);
+      $linkData['created_at'] = $date;
+      $data["link"] = $linkData;
+    }
+
+    $this->load('details.html', $data);
   }
 
   public function shortLink() {
@@ -48,11 +62,17 @@ class LinkController extends Controller {
     $url = $_POST['url'];
     $pageId = $this->generatePageId($url);
     $shortedUrl = "http://localhost/likn/".$pageId;
+    
+    $date = new \DateTime();
+    $timestamp = $date->getTimestamp();
+
     $data = [
       'id' => $pageId,
       'owner' => NULL,
-      'original_url' => $url,
-      'shorted_url' => $shortedUrl,
+      'redirect' => $url,
+      'shorted' => $shortedUrl,
+      'initial_redirect' => $url,
+      'created_at' => "NOW()"
     ];
 
     $this->model->insertUrlInDatabase($data);

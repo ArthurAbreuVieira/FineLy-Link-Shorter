@@ -9,11 +9,11 @@
     <header class="details-header">
       <div>
         <span>Código do link:</span>
-        <h3>GQ7a8as7d</h3>
+        <h3>{{link.id}}</h3>
       </div>
       <div style="width: 65%">
         <span>Redirecionamento atual:</span>
-        <h3>instagram.com</h3>
+        <h3>{{link.redirect}}</h3>
       </div>
       <div class="buttons-container">
         <button class="btn-action btn-edit">EDITAR</button>
@@ -837,8 +837,8 @@
       <div class="flex-start w100 creation-details">
         <header>Informações de criação</header>
         <div>
-          <div class="row">Çink criado em: <br /> <span>11/11/2011 - 03:12</span></div>
-          <div class="row overflow-hidden">Redirecionamento para: <br /> <span>youtube.com</span></div>
+          <div class="row">Link criado em: <br /> <span>{{link.created_at}}</span></div>
+          <div class="row overflow-hidden">Redirecionamento para: <br /> <span>{{link.initial_redirect}}</span></div>
         </div>
       </div>
     </div>
