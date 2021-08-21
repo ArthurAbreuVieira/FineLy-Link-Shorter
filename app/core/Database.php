@@ -54,4 +54,12 @@ class Database {
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
   }
+
+  public function update($table, $collumn, $value, $where, $whereValue) {
+    $sql = "UPDATE $table SET $collumn = :newValue WHERE $where = :whereValue";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(":newValue", $value);
+    $stmt->bindValue(":whereValue", $whereValue);
+    $stmt->execute();
+  }
 }

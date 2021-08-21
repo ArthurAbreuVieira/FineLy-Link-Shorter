@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\Core\Controller;
 use App\Model\LinkModel;
+use App\Model\ClickModel;
 
 class LinkController extends Controller {
   
   private $model;
+  private $clickModel;
 
   public function __construct() {
     $this->model = new LinkModel();
+    $this->clickModel = new ClickModel();
   }
 
   public function myLinksPage() {
@@ -48,6 +51,9 @@ class LinkController extends Controller {
       $date = str_replace(['-', ' '], ['/', ' - '], $linkData['created_at']);
       $linkData['created_at'] = $date;
       $data["link"] = $linkData;
+
+      $clickData = $this->clickModel->getClickData($linkData['id']);
+      $data['clicks'] = $clickData;
     }
 
     $this->load('details.html', $data);
@@ -72,7 +78,8 @@ class LinkController extends Controller {
       'redirect' => $url,
       'shorted' => $shortedUrl,
       'initial_redirect' => $url,
-      'created_at' => "NOW()"
+      'created_at' => "NOW()",
+      'click_count' => 0
     ];
 
     $this->model->insertUrlInDatabase($data);
@@ -89,5 +96,13 @@ class LinkController extends Controller {
     $pageId = str_replace(['/','.'], 'A', $pageId);
 
     return $pageId;
+  }
+
+  public function redirect($data) {
+    
+    $this->clickModel->trackClick($data['id']);
+
+    $url = str_starts_with($data['redirect'], 'http') ? $data['redirect'] : 'https://'.$data['redirect']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!
+    header('location:'.$url);
   }
 }

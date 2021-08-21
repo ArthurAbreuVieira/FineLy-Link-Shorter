@@ -39,9 +39,4 @@ class PageController extends Controller{
 
     $this->load('login.html',[]);
   }
-
-  public function redirect($data) {
-    $url = str_starts_with($data['redirect'], 'http') ? $data['redirect'] : 'https://'.$data['redirect']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!
-    header('location:'.$url);
-  }
 }

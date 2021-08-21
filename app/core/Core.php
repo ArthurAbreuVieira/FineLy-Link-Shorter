@@ -83,7 +83,7 @@ class Core {
     
     if($this->pageExists($route[0])) {
       $data = $this->conn->selectOnly("links", "id", $route[0]);
-      $controller = 'App\Controller\PageController';
+      $controller = 'App\Controller\LinkController';
       $method = 'redirect';
       $params = $data;
     } else {
@@ -92,10 +92,6 @@ class Core {
     }
 
     $params["base"] = "http://localhost/likn";
-
-    // echo '<pre>';
-    // print_r($params);
-    // die();
 
     call_user_func_array([new $controller, $method], [$params]);
   }
