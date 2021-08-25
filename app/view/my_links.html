@@ -15,13 +15,11 @@
         <div class="h100 flex-j-evenly">
           <div class="flex-collumn" style="border-right: 2px solid green;padding-right: 25px;">
             <div>CODIGO:</div>
-            <div><a href="">{{link.id}}</a></div>
+            <div><a href="http://localhost/likn/{{link.id}}">{{link.id}}</a></div>
           </div>
           <div class="flex-collumn overflow-hidden" style="width:50%">
             <div>Redirecionamento:</div>
-            <div>
-              {{link.redirect}}
-            </div>
+            <a href="{{link.redirect}}">{{link.redirect}}</a>
           </div>
           <div class="flex-collumn">
             <button style="padding: 5px 15px;" class="btn gradient radius txt-shadow" data-js="showBtn">
@@ -32,15 +30,15 @@
         </div>
         <div id="details" class="hide show flex-evenly-collumn overflow-hidden">
           <div class="strip">
-            <a href="" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
+            <a href="./details/{{link.id}}" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
           </div>
           <div class="w100 flex-start-collumn strip">
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Redirecionamento:</span>
-            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.redirect}}</a>
+            <a href="{{link.redirect}}" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.redirect}}</a>
           </div>
           <div class="strip w100 flex-start-collumn">
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Link encurtado:</span>
-            <a href="#" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.shorted}}</a>
+            <a href="{{link.shorted}}" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.shorted}}</a>
           </div>
           <div class="strip">
             <button class="btn-action btn-edit">EDITAR</button>

@@ -35,10 +35,11 @@ class LinkController extends Controller {
       die();
     }
 
+    
     $uri = $_GET['uri'];
     $uri = array_filter(explode('/', $uri));
     $uri = array_values($uri);
-
+    
     $data = [];
 
     if(isset($uri[1]) && !empty($uri[1])) {
