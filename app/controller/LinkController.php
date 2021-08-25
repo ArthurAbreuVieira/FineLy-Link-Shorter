@@ -44,16 +44,19 @@ class LinkController extends Controller {
     if(isset($uri[1]) && !empty($uri[1])) {
       $data["code"] = $uri[1];
       $linkData = $this->model->getLinkData($data['code']);
-      if(empty($linkData)) {
-        header('location: http://localhost/likn/home');
-        die();
+      if(!empty($linkData)) {
+        $date = str_replace(['-', ' '], ['/', ' - '], $linkData['created_at']);
+        $linkData['created_at'] = $date;
+        $data["link"] = $linkData;
+  
+        $clickData = $this->clickModel->getClickData($linkData['id']);
+        $data['clicks'] = $clickData;
+      } else {
+        $data["error"] = [
+          "type" => "Link não pertence ao usuário",
+          "msg" => "Esse link não existe ou não pertence a você!"
+        ];
       }
-      $date = str_replace(['-', ' '], ['/', ' - '], $linkData['created_at']);
-      $linkData['created_at'] = $date;
-      $data["link"] = $linkData;
-
-      $clickData = $this->clickModel->getClickData($linkData['id']);
-      $data['clicks'] = $clickData;
     }
 
     $this->load('details.html', $data);

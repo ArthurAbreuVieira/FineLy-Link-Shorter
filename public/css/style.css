@@ -190,6 +190,19 @@ p {
   overflow: hidden;
 }
 
+.error {
+  background-color: rgba(0, 0, 0, 0.192);
+  color: red;
+  font-weight: 500;
+  font-size: 25px;
+  padding: 8px;
+  border: 3px solid red;
+  text-align: center;
+  margin: 60px;
+  border-radius: 2px;
+  width: 60%;
+}
+
 
 /* Header */
 

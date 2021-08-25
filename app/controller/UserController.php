@@ -26,16 +26,28 @@ class UserController extends Controller {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-    if($this->model->selectOnly('users', 'email', $email)) {
-      echo "USUARIO JÀ CASDASTRADO";
-      die();
-    }
     
     if(empty($name) || empty($email) || empty($password)) {
-      echo "Preencha todos os campos!";
-      die();
+      $this->load('signUp.html',[
+        "error" => [
+          "type" => "Invalid data",
+          "msg" => "Preencha todos os campos!"
+        ]
+      ]);
+      die;
     }
+
+    $user = $this->model->selectOnly('users', 'email', $email);
+    if($user != false) {
+      $this->load('signUp.html',[
+        "error" => [
+          "type" => "Invalid data",
+          "msg" => "Usuário já cadastrado!"
+        ]
+      ]);
+      die;
+    }
+    
 
     $values = [
       "name" => $name,
@@ -62,8 +74,12 @@ class UserController extends Controller {
     $password = $_POST['password'];
 
     if(empty($email) || empty($password)) {
-      echo "Preencha todos os campos!";
-      die();
+      $this->load('login.html',[
+        "error" => [
+          "type" => "Invalid data",
+          "msg" => "Preencha todos os campos!"
+        ]
+      ]);
     }
 
     $values = [
@@ -80,7 +96,12 @@ class UserController extends Controller {
       ];
       header('Location: home');
     } else {
-      echo 'dados invalidos.';
+      $this->load('login.html',[
+        "error" => [
+          "type" => "Invalid data",
+          "msg" => "Dados invalidos!"
+        ]
+      ]);
     }
   }
 

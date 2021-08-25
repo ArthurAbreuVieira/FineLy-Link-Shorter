@@ -6,6 +6,7 @@
 {% block content %}
 <main class="w100 mh100 flex-center" style="padding-top: 100px;">
   <div class="container box-shadow w100" style="width: 90%;">
+    {% if link.id %}
     <header class="details-header">
       <div>
         <span>Código do link:</span>
@@ -71,5 +72,16 @@
       </div>
     </div>
   </div>
+  {% else %}
+  <div class="w100 flex-center-collumn">
+    {% if error %}
+    <span class="error">{{error.msg}}</span>
+    {% endif %}
+    <form action="./short" method="POST" class="w100 flex-center-collumn">
+      <input class="link-input input radius" type="text" placeholder="Digite o link encurtado ou o código dele" name="link"/>
+      <input class="btn input gradient txt-shadow radius" type="submit" value="Procurar link" />
+    </form>
+  </div>
+  {% endif %}
 </main>
 {% endblock %}

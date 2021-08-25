@@ -16,7 +16,6 @@ class UserModel extends Database {
     }
     $userEmail = $userEmail['email'];
     $userPassword = $this->selectOnly('users', 'email', $values['email'], 'password')['password'];
-    var_dump($userEmail);
     
     if($userEmail === $values['email'] && password_verify($values['password'], $userPassword))  {
       return true;

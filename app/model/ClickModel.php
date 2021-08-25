@@ -30,6 +30,7 @@ class ClickModel extends Database {
       $click['clicked_at'] = str_replace(['-', ' '], ['/', ' - '], $date);
       $data[$key]['clicked_at'] = $click['clicked_at'];
     }
+    $data = array_reverse($data);
     return $data; 
   }
 
