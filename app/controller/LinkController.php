@@ -35,16 +35,19 @@ class LinkController extends Controller {
       die();
     }
 
-    
-    $uri = $_GET['uri'];
-    $uri = array_filter(explode('/', $uri));
-    $uri = array_values($uri);
+    if(isset($_POST['link'])) {
+      $linkCode = $_POST['link'];
+    } else {
+      $uri = $_GET['uri'];
+      $uri = array_filter(explode('/', $uri));
+      $uri = array_values($uri);
+      if(isset($uri[1])) $linkCode = $uri[1];
+    }
     
     $data = [];
 
-    if(isset($uri[1]) && !empty($uri[1])) {
-      $data["code"] = $uri[1];
-      $linkData = $this->model->getLinkData($data['code']);
+    if(isset($linkCode) && !empty($linkCode)) {
+      $linkData = $this->model->getLinkData($linkCode);
       if(!empty($linkData)) {
         $date = str_replace(['-', ' '], ['/', ' - '], $linkData['created_at']);
         $linkData['created_at'] = $date;

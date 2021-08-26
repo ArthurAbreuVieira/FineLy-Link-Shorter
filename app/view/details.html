@@ -77,7 +77,8 @@
     {% if error %}
     <span class="error">{{error.msg}}</span>
     {% endif %}
-    <form action="./short" method="POST" class="w100 flex-center-collumn">
+    <h3 style="margin-bottom:25px">Digite o código do link encurtado abaixo.</h3>
+    <form action="http://localhost/likn/details" method="POST" class="w100 flex-center-collumn">
       <input class="link-input input radius" type="text" placeholder="Digite o link encurtado ou o código dele" name="link"/>
       <input class="btn input gradient txt-shadow radius" type="submit" value="Procurar link" />
     </form>
