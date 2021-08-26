@@ -68,7 +68,7 @@ class LinkController extends Controller {
 
   public function shortLink() {
     if(!isset($_POST['url']) || empty($_POST['url'])){
-      $this->load('linkResult.html',["error" => 'empty_url']);
+      $this->load('short.html',["error" => 'empty_url']);
       die(); 
     }
 
@@ -91,7 +91,7 @@ class LinkController extends Controller {
 
     $this->model->insertUrlInDatabase($data);
 
-    $this->load('linkResult.html',$data);
+    $this->load('short.html',$data);
   }
 
   private function generatePageId(String $url) {
