@@ -52,7 +52,10 @@ class Database {
     }
 
     $stmt = $this->conn->prepare($sql);
-    $stmt->execute();
+    if ($stmt->execute()) 
+      return true;
+    else 
+      return false;
   }
 
   public function update($table, $collumn, $value, $where, $whereValue) {
@@ -60,13 +63,19 @@ class Database {
     $stmt = $this->conn->prepare($sql);
     $stmt->bindValue(":newValue", $value);
     $stmt->bindValue(":whereValue", $whereValue);
-    $stmt->execute();
+    if ($stmt->execute()) 
+      return true;
+    else 
+      return false;
   }
 
   public function delete($table, $collumn, $value) {
     $sql = "DELETE FROM $table WHERE $collumn = :value";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindValue(":value", $value);
-    $stmt->execute();
+    if ($stmt->execute()) 
+      return true;
+    else 
+      return false;
   }
 }

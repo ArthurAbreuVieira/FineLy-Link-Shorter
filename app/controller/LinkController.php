@@ -105,6 +105,43 @@ class LinkController extends Controller {
     return $pageId;
   }
 
+  public function editLink($data) {
+    if((isset($_SERVER['CONTENT_TYPE'], $_POST['data']) && $_SERVER['CONTENT_TYPE']==="application/x-www-form-urlencoded")) {
+      
+      $data = json_decode($_POST['data'], true);
+      if(!is_array($data) || empty($data['id']) || empty($data['redirect'])) {
+        $response = [
+          "status" => "error",
+          "msg" => "Não foi possivel editar o link!"
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      }
+  
+      if($this->model->edit($data)) {
+        $response = [
+          "status" => "success",
+          "msg" => "Link editado com sucesso!"
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      } else {
+        $response = [
+          "status" => "error",
+          "msg" => "Não foi possivel editar o link!"
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      }
+
+    } else {
+      header("Location: home");die;
+    }
+  }
+
   public function redirect($data) {
     
     $this->clickModel->trackClick($data['id']);
