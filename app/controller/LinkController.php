@@ -21,12 +21,16 @@ class LinkController extends Controller {
       header('location: home');
       die();
     }
+    $params = [];
+    if(!empty($_SESSION['flash']))  {
+      $params["flash"] = $_SESSION['flash'];
+      unset($_SESSION['flash']);
+    }
     $user = $_SESSION['user'];
     $links = $this->model->getLinksFromUser();
-    $this->load('my_links.html', [
-      "links" => $links,
-      "user" => $user
-    ]);
+    $params['user'] = $user;
+    $params['links'] = $links;
+    $this->load('my_links.html', $params);
   }
 
   public function linkDetailsPage() {    
@@ -164,9 +168,13 @@ class LinkController extends Controller {
           "status" => "success",
           "msg" => "Link deletado com sucesso!"
         ];
-
         $json = json_encode($response);
         echo $json;
+
+        $_SESSION['flash'] = [
+          "type" => $response["status"],
+          "msg" =>  $response["msg"]
+        ];
         die;
       } else {
         $response = [
@@ -177,9 +185,7 @@ class LinkController extends Controller {
         echo $json;
         die;
       }
-
     }
-    
   }
 
   public function redirect($data) {

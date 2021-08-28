@@ -175,6 +175,10 @@ p {
   background: linear-gradient(to right, #2ebd59, #00aebb);
 }
 
+.red-gradient {
+  background: linear-gradient(to right, #ff6600, #ff0000);
+}
+
 .align-center {
   text-align: center;
 }
@@ -197,6 +201,19 @@ p {
   font-size: 25px;
   padding: 8px;
   border: 3px solid red;
+  text-align: center;
+  margin: 60px;
+  border-radius: 2px;
+  width: 60%;
+}
+
+.success {
+  background-color: rgba(0, 0, 0, 0.192);
+  color: #00ce3e;
+  font-weight: 500;
+  font-size: 25px;
+  padding: 8px;
+  border: 3px solid #00ce3e;
   text-align: center;
   margin: 60px;
   border-radius: 2px;

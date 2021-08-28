@@ -18,7 +18,7 @@
       </div>
       <div class="buttons-container">
         <button id="edit" class="btn-action btn-edit">EDITAR</button>
-        <button class="btn-action btn-delete">DELETAR</button>
+        <button id="delete" class="btn-action btn-delete">DELETAR</button>
       </div>
     </header>
     <div class="details-body">
@@ -109,9 +109,6 @@
             </div>
           </div>
           <div id="main-content" class="w100 flex-center-collumn" style="margin-top: 30px;">
-            {% if error %}
-            <span class="error">{{error.msg}}</span>
-            {% endif %}
             <input id="redirect" class="link-input input radius" type="text" placeholder="Digite o novo link de destino" required />
             <input id="submit" class="btn input gradient txt-shadow radius" type="submit" value="Concluir" />
           </div>
@@ -128,7 +125,7 @@
 
     const close = document.getElementById("close");
     close.addEventListener("click", () => {
-      document.body.removeChild(document.body.querySelector(".modal"));
+      document.body.removeChild(fragment);
     });
 
     const submit = document.getElementById("submit");
@@ -164,6 +161,80 @@
           }
         });
     });
+  });
+
+  const modalDelete = `
+    <div class="modal flex-center">
+      <div class="container">
+        <div class="flex-between">
+          <h3>Deletar link</h3>
+          <i id="close" class="far fa-times-circle txt-shadow"></i>
+        </div>
+        <div>
+          <div class="flex-collumn">
+            <div style="margin-top: 25px;" class="overflow-hidden w50">
+              <span style="font-weight:bold" class="txt-shadow">Redirecionamento atual:</span>
+              <h3><a href="{{link.redirect}}" class="main-green txt-shadow">{{link.redirect}}</a></h3>
+            </div>
+            <div style="margin-top: 25px;" class="overflow-hidden w50">
+              <span style="font-weight:bold" class="txt-shadow">Código do link:</span>
+              <h3><a href="{{link.shorted}}" class="main-green txt-shadow">{{link.id}}</a></h3>
+            </div>
+            <div style="margin-top: 25px;" class="overflow-hidden w50">
+              <span style="font-weight:bold" class="txt-shadow">Total de cliques:</span>
+              <h3 class="main-green txt-shadow">{{link.click_count}}</h3>
+            </div>
+          </div>
+          <div id="main-content" class="w100 flex-center-collumn" style="margin-top: 30px;">
+            <input id="submit" class="btn input red-gradient txt-shadow radius" type="submit" value="Confirmar exclusão" />
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const deleteBtn = document.getElementById("delete");
+  deleteBtn.addEventListener("click", () => {
+    const fragment = new DOMParser().parseFromString(modalDelete, "text/html").firstElementChild;
+    console.log(fragment);
+    document.body.insertAdjacentElement("afterbegin", fragment);
+
+    const close = document.getElementById("close");
+    close.addEventListener("click", () => {
+      document.body.removeChild(fragment);
+    });
+
+    const submit = document.getElementById("submit");
+    console.log(submit);
+    submit.addEventListener("click", e => {
+      e.preventDefault();
+      const id = document.getElementById("linkId").innerText;
+
+      const params = "data=" + JSON.stringify({
+        id
+      });
+
+      const options = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: params
+      }
+      fetch("http://localhost/likn/delete/", options)
+        .then(response => response.json())
+        .then(json => {
+          if(json.status === "success") {
+            window.location = "http://localhost/likn/mylinks";
+          } else {
+            if(!document.querySelector("[data-type=error_message]")) {
+              const errorMessage = `<span data-type="error_message" class="error">${json.msg}</span>`;
+              const container = document.getElementById("main-content");
+              container.insertAdjacentHTML("afterbegin", errorMessage);
+            }
+          }
+        });
+      });
   });
 
 </script>

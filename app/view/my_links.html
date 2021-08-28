@@ -5,8 +5,10 @@
 
 {% block content %}
 <main class="w100 mh100 flex-start-collumn" style="padding: 150px 0;">
+  {% if flash %}
+    <span class="success"> {{flash.msg}} </span>
+  {% endif %}
   <h2>Olá, {{user.name|capitalize}}.</h2>
-  <div>ESSE FOI SEU ULTIMO LINKS ENCURTADO</div>
   <h3>Abaixo estão todos os seus links encurtados</h3>
   <div style="width: 80%;" class="flex-center">
     <ul class="w100 flex-center-collumn" id="list">
