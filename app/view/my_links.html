@@ -42,10 +42,6 @@
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Link encurtado:</span>
             <a href="{{link.shorted}}" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.shorted}}</a>
           </div>
-          <div class="strip">
-            <button class="btn-action btn-edit">EDITAR</button>
-            <button class="btn-action btn-delete">DELETAR</button>
-          </div>
         </div>
       </li>
       {% endfor %}
@@ -53,8 +49,11 @@
   </div>
 </main>
 <script>
+
   const showBtn = document.querySelectorAll('[data-js=showBtn]');
   const divs = document.querySelectorAll('.hide');
+
+  const deleteBtn = document.querySelectorAll("[data-btn=delete]");
   for (let i = 0; i < showBtn.length; i++) {
     showBtn[i].addEventListener('click', () => {
       if (divs[i].classList.contains("hide")) {
@@ -64,7 +63,8 @@
         divs[i].classList.remove("show");
         divs[i].classList.add("hide");
       }
-    });
+    });    
   }
+
 </script>
 {% endblock %}
