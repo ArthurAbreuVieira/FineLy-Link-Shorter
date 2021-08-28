@@ -120,7 +120,7 @@ class LinkController extends Controller {
         die;
       }
   
-      if($this->model->edit($data)) {
+      if($this->model->updateLink($data)) {
         $response = [
           "status" => "success",
           "msg" => "Link editado com sucesso!"
@@ -141,6 +141,45 @@ class LinkController extends Controller {
     } else {
       header("Location: home");die;
     }
+  }
+
+  public function deleteLink($data) {
+    if((isset($_SERVER['CONTENT_TYPE'], $_POST['data']) && $_SERVER['CONTENT_TYPE']==="application/x-www-form-urlencoded")) {
+      
+      $data = json_decode($_POST['data'], true);
+      if(!is_array($data) || empty($data['id'])) {
+        $response = [
+          "status" => "error",
+          "msg" => "Não foi possivel deletar o link!"
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      }
+  
+      $response = [];
+
+      if($this->model->deleteLink($data)) {
+        $response = [
+          "status" => "success",
+          "msg" => "Link deletado com sucesso!"
+        ];
+
+        $json = json_encode($response);
+        echo $json;
+        die;
+      } else {
+        $response = [
+          "status" => "error",
+          "msg" => "Não foi possivel deletar o link!"
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      }
+
+    }
+    
   }
 
   public function redirect($data) {

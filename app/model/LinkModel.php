@@ -40,10 +40,19 @@ class LinkModel extends Database {
     return;
   }
 
-  public function edit($data) {
+  public function updateLink($data) {
     $link = $this->getLinkData($data['id']);
     if(!empty($link)) {
       if($this->update('links', 'redirect', $data['redirect'], 'id', $data['id']))
+        return true;      
+    }
+    return false;
+  }
+
+  public function deleteLink($data) {
+    $link = $this->getLinkData($data['id']);
+    if(!empty($link)) {
+      if($this->delete('links', 'id', $data['id']))
         return true;      
     }
     return false;
