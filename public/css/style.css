@@ -562,3 +562,21 @@ p {
   font-weight: bold !important;
   color: #b8b8b8 !important;
 }
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  z-index: 90;
+}
+
+.modal .container .fa-times-circle {
+  color: red;
+  font-size: 35px;
+  cursor: pointer;
+}
+.modal .container .fa-times-circle:hover {
+  color: red;
+  text-shadow: 1px 1px 15px red !important;
+}

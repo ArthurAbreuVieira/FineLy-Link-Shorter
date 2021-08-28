@@ -116,6 +116,7 @@ class LinkController extends Controller {
         ];
         $json = json_encode($response);
         echo $json;
+        // var_dump($json);
         die;
       }
   
