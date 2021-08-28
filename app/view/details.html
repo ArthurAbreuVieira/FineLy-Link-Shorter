@@ -156,9 +156,11 @@
           if(json.status === "success") {
             window.location.reload();
           } else {
-            const errorMessage = `<span class="error">${json.msg}</span>`;
-            const container = document.getElementById("main-content");
-            container.insertAdjacentHTML("afterbegin", errorMessage);
+            if(!document.querySelector("[data-type=error_message]")) {
+              const errorMessage = `<span data-type="error_message" class="error">${json.msg}</span>`;
+              const container = document.getElementById("main-content");
+              container.insertAdjacentHTML("afterbegin", errorMessage);
+            }
           }
         });
     });
