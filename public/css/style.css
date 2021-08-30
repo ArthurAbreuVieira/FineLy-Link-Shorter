@@ -95,6 +95,13 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+
+.flex-between-collumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
   
   .flex-center {
   display: flex;
@@ -596,4 +603,27 @@ p {
 .modal .container .fa-times-circle:hover {
   color: red;
   text-shadow: 1px 1px 15px red !important;
+}
+
+#profile-info {
+  width: 30%;
+  border-right: 3px #00ce3e solid;
+  overflow: hidden;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  background-color: #0cc042;
+  border-radius: 50%;
+}
+
+#profile-info div.info {
+  margin-top: 20px;
+  word-break: break-all;
+}
+
+#profile-info div label {
+  font-weight: bold;
+  word-wrap: break-word;
 }

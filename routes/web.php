@@ -10,6 +10,7 @@ $this->get("logout", "UserController@logout");
 $this->post("login-user", "UserController@login");
 $this->get("mylinks", "LinkController@myLinksPage");
 $this->get("details/{link_id}", "LinkController@linkDetailsPage");
+$this->get("profile", "PageController@profile");
 $this->get("edit", "LinkController@editLink");
 $this->get("delete", "LinkController@deleteLink");
 

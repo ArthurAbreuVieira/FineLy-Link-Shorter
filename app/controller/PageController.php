@@ -39,4 +39,13 @@ class PageController extends Controller{
 
     $this->load('login.html',[]);
   }
+  
+  public function profile() {
+    if(UserController::userIsLoggedIn()) {
+      header("Location: home");
+      die();
+    }
+
+    $this->load('profile.html',[]);
+  }
 }
