@@ -22,4 +22,14 @@ class UserModel extends Database {
     }
     return false;
   }
+
+  public function updateUser($data) {
+    $collumn = $data['type'];
+    $value = $data['value'];
+    $id = $_SESSION['user']['id'];
+    if($this->update('users', $collumn, $value, 'id', $id)){
+      return true;
+    }
+    return false;
+  }
 }

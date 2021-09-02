@@ -7,38 +7,42 @@
 <main class="w100 h100 flex-center-collumn" style="padding: 200px 0;">
   <div class="container flex">
     <div class="h100 flex-start-collumn mh100" id="profile-info">
-      <img class="profile-pic box-shadow" width="200px" height="200px" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="profile">
+      <img class="profile-pic box-shadow" width="120px" height="120px"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="profile">
       <div class="flex-collumn ">
         <div class="flex-collumn info row overflow-hidden" style="max-height: 95px;">
           <label class="txt-shadow">Nome:</label>
-          <span class="txt-shadow">Arthur Abreu VIeira</span>
+          <span id="name" class="txt-shadow">Arthur Abreu VIeira</span>
         </div>
         <div class="flex-collumn info row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Email:</label>
-          <span class="txt-shadow">Arthur Abreu VIeira MendesArthur</span>
+          <span id="email" class="txt-shadow">Arthur Abreu VIeira MendesArthur</span>
         </div>
       </div>
     </div>
-    <div class="h100 flex-between-collumn" style="width: 70%;">
+    <div id="updateForm" class="h100 flex-between-collumn" style="width: 70%;">
       <!-- {% if error %} -->
       <span class="error" style="margin: 0;">{{error.msg}}</span>
       <!-- {% endif %} -->
-      <h3 >Alterar dados</h3>
+      <h3>Alterar dados</h3>
       <div class="h100 w100 flex-start" style="margin: 30px 0 0 70px">
-        <div class="flex-collumn info row overflow-hidden" style="max-height: 95px;">
+        <div class="flex-collumn row overflow-hidden" style="max-height: 95px;">
           <label class="txt-shadow">Nome:</label>
           <span class="txt-shadow">Arthur Abreu VIeira MendesArthur</span>
-          <button data-edit="name" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i> Editar</button>
+          <button data-edit="name" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>
+            Editar</button>
         </div>
-        <div class="flex-collumn info row overflow-hidden " style="max-height: 95px;">
+        <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Email:</label>
           <span class="txt-shadow">Arthur Abreu VIeira MendesArthur</span>
-          <button data-edit="email" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i> Editar</button>
+          <button data-edit="email" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>
+            Editar</button>
         </div>
-        <div class="flex-collumn info row overflow-hidden " style="max-height: 95px;">
+        <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Senha:</label>
           <span class="txt-shadow">******</span>
-          <button data-edit="password" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i> Editar</button>
+          <button data-edit="password" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>
+            Editar</button>
         </div>
         <!-- <form action="./signup-user" method="POST" class="w100 flex-center-collumn">
           <input class="link-input input radius" type="text" placeholder="Nome" name="name" required/>
@@ -52,4 +56,133 @@
     </div>
   </div>
 </main>
+
+<script>
+  const params = {
+    type: null,
+    value: null
+  };
+  const name = document.getElementById("name").innerText;
+  const email = document.getElementById("email").innerText;
+  const editButtons = document.querySelectorAll("[data-edit]");
+  editButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.dataset.edit === "name") {
+        const form = document.getElementById("updateForm");
+        form.innerHTML = `
+          <div class="w100 h100 flex-center-collumn">
+            <label>Digite o seu novo nome de usuário:</label>
+            <input data-type="name" class="link-input input radius" type="text" placeholder="Novo nome" required/>
+            <input data-btn="update" class="btn input gradient radius" type="submit" value="Alterar dados" />
+            <button class="link-nav" style="background:transparent;border:none;font-weight:bold;cursor:pointer" data-btn="back">VOLTAR <-</button>
+          </div>
+        `;
+        const updateBtn = document.querySelector("[data-btn='update']");
+        updateBtn.addEventListener("click", e => {
+          e.preventDefault();
+          params.type = "name";
+          params.value = document.querySelector("[data-type=name]").value;
+          fetch("http://localhost/likn/update/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `data=${JSON.stringify(params)}`
+          })
+            .then(response => response.json())
+            .then(json => {
+              // console.log(json);
+              if (json.status === "error") {
+                if (!document.querySelector('.error')) {
+                  const form = document.getElementById("updateForm");
+                  console.log(form);
+                  const htmlError = `<span class="error" style="margin: 0;">${json.msg}</span>`;
+                  const errorElement = document.createRange().createContextualFragment(htmlError).firstChild;
+                  form.insertAdjacentElement("afterend", errorElement);
+                }
+              } else if (json.status === "success") {
+                window.location.reload();
+              }
+            });
+        });
+      } else if (button.dataset.edit === "email") {
+        const form = document.getElementById("updateForm");
+        form.innerHTML = `
+          <div class="w100 h100 flex-center-collumn">
+            <label>Digite o seu novo email de login:</label>
+            <input data-type="email" class="link-input input radius" type="email" placeholder="Novo email" required/>
+            <input data-btn="update" class="btn input gradient radius" type="submit" value="Alterar dados" />
+            <button class="link-nav" style="background:transparent;border:none;font-weight:bold;cursor:pointer" data-btn="back">VOLTAR <-</button>
+          </div>
+        `;
+        const updateBtn = document.querySelector("[data-btn=update]");
+        updateBtn.addEventListener("click", e => {
+          e.preventDefault();
+          params.type = "email";
+          params.value = document.querySelector("[data-type=email]").value;
+          fetch("http://localhost/likn/update/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `data=${JSON.stringify(params)}`
+          })
+            .then(response => response.json())
+            .then(json => {
+              // console.log(json);
+              if (json.status === "error") {
+                if (!document.querySelector('.error')) {
+                  const form = document.getElementById("updateForm");
+                  console.log(form);
+                  const htmlError = `<span class="error" style="margin: 0;">${json.msg}</span>`;
+                  const errorElement = document.createRange().createContextualFragment(htmlError).firstChild;
+                  form.insertAdjacentElement("afterend", errorElement);
+                }
+              } else if (json.status === "success") {
+                window.location.reload();
+              }
+            });
+        });
+      } else if (button.dataset.edit === "password") {
+        const form = document.getElementById("updateForm");
+        form.innerHTML = `
+          <div class="w100 h100 flex-center-collumn">
+            <label>Digite o sua nova senha de login:</label>
+            <input data-type="password" class="link-input input radius" type="text" placeholder="Nova senha" required/>
+            <input data-btn="update" class="btn input gradient radius" type="submit" value="Alterar dados" />
+            <button class="link-nav" style="background:transparent;border:none;font-weight:bold;cursor:pointer" data-btn="back">VOLTAR <-</button>
+          </div>
+        `;
+        const updateBtn = document.querySelector("[data-btn=update]");
+        updateBtn.addEventListener("click", e => {
+          e.preventDefault();
+          params.type = "password";
+          params.value = document.querySelector("[data-type=password]").value;
+          fetch("http://localhost/likn/update/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `data=${JSON.stringify(params)}`
+          })
+            .then(response => response.json())
+            .then(json => {
+              // console.log(json);
+              if (json.status === "error") {
+                if (!document.querySelector('.error')) {
+                  const form = document.getElementById("updateForm");
+                  console.log(form);
+                  const htmlError = `<span class="error" style="margin: 0;">${json.msg}</span>`;
+                  const errorElement = document.createRange().createContextualFragment(htmlError).firstChild;
+                  form.insertAdjacentElement("afterend", errorElement);
+                }
+              } else if (json.status === "success") {
+                window.location.reload();
+              }
+            });
+        });
+      }
+    });
+  });
+</script>
 {% endblock %}

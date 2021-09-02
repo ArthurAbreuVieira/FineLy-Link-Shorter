@@ -41,7 +41,7 @@ class PageController extends Controller{
   }
   
   public function profile() {
-    if(UserController::userIsLoggedIn()) {
+    if(!UserController::userIsLoggedIn()) {
       header("Location: home");
       die();
     }
