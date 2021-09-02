@@ -38,8 +38,8 @@ editButtons.forEach(button => {
     const updateBtn = document.querySelector("[data-btn='update']");
     updateBtn.addEventListener("click", e => {
       e.preventDefault();
-      params.type = document.querySelector("[data-type=name]").dataset.type;
-      params.value = document.querySelector("[data-type=name]").value;
+      params.type = document.querySelector("[data-js=get]").dataset.type;
+      params.value = document.querySelector("[data-js=get]").value;
       httpFetch.updateUser(params);
     });
   });

@@ -22,7 +22,7 @@ const fragments = {
   formUpdate: 
   `<div class="w100 h100 flex-center-collumn">
     <label>{!label!}</label>
-    <input data-type="{!data-type!}" class="link-input input radius" type="{!type!}" placeholder="{!placeholder!}" required/>
+    <input data-js="get" data-type="{!data-type!}" class="link-input input radius" type="{!type!}" placeholder="{!placeholder!}" required/>
     <input data-btn="update" class="btn input gradient radius" type="submit" value="Alterar dados" />
     <button class="link-nav" style="background:transparent;border:none;font-weight:bold;cursor:pointer" data-btn="back">VOLTAR <-</button>
    </div>`,

@@ -43,7 +43,7 @@ actionsBtn.forEach(btn => {
         },
         body: params
       }
-      const action = btn.dataset.action === "edit" ? "edit" : "delete";
+      const action = btn.dataset.action;
       httpFetch.updateLink(options, action);
     });
   });
