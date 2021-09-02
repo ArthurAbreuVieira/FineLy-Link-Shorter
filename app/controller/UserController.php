@@ -120,41 +120,45 @@ class UserController extends Controller {
   }
 
   public function updateUserData() {
-    if(empty($_POST['data'])){  
-      echo json_encode([
-        'status' => 'error',
-        'msg' => "Não foi possivel alterar os dados."
-      ]);
-      die;
-    }
-    $json = json_decode($_POST['data'], true);
-    if(empty($json['type'] || empty($json['value']))) {
-      echo json_encode([
-        'status' => 'error',
-        'msg' => "Não foi possivel alterar os dados."
-      ]);
-      die;
-    }
-    if($json['type'] === "password") {
-      $json['value'] = password_hash($json['value'], PASSWORD_BCRYPT);
-    }
-    if($this->model->updateUser($json)) {
-      if($json['type'] === 'name') {
-        $_SESSION['user']['name'] = $json['value'];
-      } else if ($json['type'] === 'email') {
-        $_SESSION['user']['email'] = $json['value'];
+    $errorResponse = json_encode([
+      'status' => 'error',
+      'msg' => "Não foi possivel alterar os dados."
+    ]);
+    if((isset($_SERVER['CONTENT_TYPE'], $_POST['data']) && $_SERVER['CONTENT_TYPE']==="application/x-www-form-urlencoded")) {
+      
+      $json = json_decode($_POST['data'], true);
+      if(!is_array($json) || empty($json['type'] || empty($json['value']))) {
+        echo $errorResponse;
+        die;
       }
-      echo json_encode([
-        'status' => 'success',
-        'msg' => "Dados alterados com sucesso"
-      ]);
-      die;
-    }else {
-      echo json_encode([
-        'status' => 'error',
-        'msg' => "Não foi possivel alterar os dados."
-      ]);
-      die;
+  
+      if($json['type'] === "password") {
+        $json['value'] = password_hash($json['value'], PASSWORD_BCRYPT);
+      }
+      if($json['type'] === "email") {
+        if($this->model->selectOnly('users', 'email', $json['value'], 'email')) {
+          echo $errorResponse;
+          die;
+        }
+      }
+
+      if($this->model->updateUser($json)) {
+        if($json['type'] === 'name') {
+          $_SESSION['user']['name'] = $json['value'];
+        } else if ($json['type'] === 'email') {
+          $_SESSION['user']['email'] = $json['value'];
+        }
+        echo json_encode([
+          'status' => 'success',
+          'msg' => "Dados alterados com sucesso"
+        ]);
+        die;
+      } else {
+        echo $errorResponse;
+        die;
+      }
+    } else {
+      header("Location: home");die;
     }
   }
 }
