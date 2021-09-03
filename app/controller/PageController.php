@@ -45,7 +45,8 @@ class PageController extends Controller{
       header("Location: home");
       die();
     }
-
-    $this->load('profile.html',[]);
+    $params = [];
+    $params = ["user" => $_SESSION['user']];
+    $this->load('profile.html',$params);
   }
 }

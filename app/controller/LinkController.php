@@ -66,13 +66,16 @@ class LinkController extends Controller {
         ];
       }
     }
-
+    $data['user'] = $_SESSION['user'];
     $this->load('details.html', $data);
   }
 
   public function shortLink() {
     if(!isset($_POST['url']) || empty($_POST['url'])){
-      $this->load('short.html',["error" => 'empty_url']);
+      $this->load('short.html',[
+        "error" => 'empty_url',
+        "user" => UserController::userIsLoggedIn()?$_SESSION['user']:NULL
+      ]);
       die(); 
     }
 
@@ -95,6 +98,9 @@ class LinkController extends Controller {
 
     $this->model->insertUrlInDatabase($data);
 
+    if(UserController::userIsLoggedIn()) {
+      $data["user"] = $_SESSION['user'];
+    }
     $this->load('short.html',$data);
   }
 
