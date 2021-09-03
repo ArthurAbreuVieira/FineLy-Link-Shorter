@@ -8,10 +8,12 @@ class ClickModel extends Database {
 
   public function trackClick($link_id) {
     $ip = $_SERVER["REMOTE_ADDR"];
+    $ipStackData = file_get_contents("http://api.ipstack.com/$ip?access_key=39cbc49ed3d82e6a82299056a0c3fd8e");
     $values = [
       "link" => $link_id,
       "clicked_at" => 'NOW()',
-      "ip" => $ip
+      "ip" => $ip,
+      "ipstack" => $ipStackData
     ];
     $this->insert("clicks", $values);
     $clickCount = (int) $this->selectOnly("links", "id", $link_id, "click_count")["click_count"];
