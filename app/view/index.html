@@ -1,5 +1,6 @@
 {% extends 'templates/base.html' %}
 
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Teste {% endblock %}
 
 {% block content %}
@@ -7,6 +8,7 @@
 {% include 'index.loggedin.html' %}
 {% else %}
 <main class="w100 h100 flex-center-collumn bg-image">
+  {{BASE}}
   <div class="flex-center-collumn container box-shadow">
     <div class="logo"><img src="" alt="LOGO"></div>
     <div class="w100 flex">

@@ -18,7 +18,7 @@ class PageController extends Controller{
     if(UserController::userIsLoggedIn()) {
       $params = ["user" => $_SESSION['user']];
     }
-
+    $params["BASE"] = $_ENV['BASE'];
     $this->load('index.html',$params);
   }
 
@@ -27,8 +27,9 @@ class PageController extends Controller{
       header('location:'.$_ENV['BASE'].'/home');
       die();
     }
-
-    $this->load('signUp.html',[]);    
+    $params = [];
+    $params["BASE"] = $_ENV['BASE'];
+    $this->load('signUp.html',$params);    
   }
   
   public function login() {
@@ -36,8 +37,9 @@ class PageController extends Controller{
       header('location:'.$_ENV['BASE'].'/home');
       die();
     }
-
-    $this->load('login.html',[]);
+    $params = [];
+    $params["BASE"] = $_ENV['BASE'];
+    $this->load('login.html',$params);
   }
   
   public function profile() {
@@ -47,6 +49,7 @@ class PageController extends Controller{
     }
     $params = [];
     $params = ["user" => $_SESSION['user']];
+    $params["BASE"] = $_ENV['BASE'];
     $this->load('profile.html',$params);
   }
 }

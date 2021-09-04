@@ -1,6 +1,6 @@
 {% extends 'templates/base.html' %}
 
-{% block BASE %}http://localhost/likn/{% endblock %}
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Teste {% endblock %}
 
 {% block content %}
@@ -80,7 +80,7 @@
     <span class="error">{{error.msg}}</span>
     {% endif %}
     <h3 style="margin-bottom:25px">Digite o código do link encurtado abaixo.</h3>
-    <form action="http://localhost/likn/details" method="POST" class="w100 flex-center-collumn">
+    <form action="{{BASE}}/details" method="POST" class="w100 flex-center-collumn">
       <input class="link-input input radius" type="text" placeholder="Digite o link encurtado ou o código dele"
         name="link" />
       <input class="btn input gradient txt-shadow radius" type="submit" value="Procurar link" />
@@ -89,5 +89,5 @@
   {% endif %}
 </main>
 
-<script type="module" src="http://localhost/likn/public/js/updateLink.js"></script>
+<script type="module" src="{{BASE}}/public/js/updateLink.js"></script>
 {% endblock %}

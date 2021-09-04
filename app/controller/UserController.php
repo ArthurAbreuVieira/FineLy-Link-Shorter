@@ -32,7 +32,8 @@ class UserController extends Controller {
         "error" => [
           "type" => "Invalid data",
           "msg" => "Preencha todos os campos!"
-        ]
+        ],
+        "BASE" => $_ENV['BASE']
       ]);
       die;
     }
@@ -43,7 +44,8 @@ class UserController extends Controller {
         "error" => [
           "type" => "Invalid data",
           "msg" => "Usuário já cadastrado!"
-        ]
+        ],
+        "BASE" => $_ENV['BASE']
       ]);
       die;
     }
@@ -78,7 +80,8 @@ class UserController extends Controller {
         "error" => [
           "type" => "Invalid data",
           "msg" => "Preencha todos os campos!"
-        ]
+        ],
+        "BASE" => $_ENV['BASE']
       ]);
     }
 
@@ -100,7 +103,8 @@ class UserController extends Controller {
         "error" => [
           "type" => "Invalid data",
           "msg" => "Dados invalidos!"
-        ]
+        ],
+        "BASE" => $_ENV['BASE']
       ]);
     }
   }

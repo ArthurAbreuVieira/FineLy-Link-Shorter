@@ -5,27 +5,27 @@
   <nav class="header-nav h100">
     <ul class="flex-evenly w100 h100">
       <li class="flex-center h100">
-        <a href="./short" class="link-nav txt-shadow">Encurtar</a>
+        <a href="{{BASE}}/short" class="link-nav txt-shadow">Encurtar</a>
       </li>
       <li class="flex-center h100">
-        <a href="./mylinks" class="link-nav txt-shadow">Ver meu links</a>
+        <a href="{{BASE}}/mylinks" class="link-nav txt-shadow">Ver meu links</a>
       </li>
       <li class="flex-center h100">
-        <a href="./home" class="link-nav txt-shadow">Início</a>
+        <a href="{{BASE}}/home" class="link-nav txt-shadow">Início</a>
       </li>
       {% if user %}
       <li class="flex-center h100">
-        <a href="./profile" class="btn gradient txt-shadow">Meu perfil</a>
+        <a href="{{BASE}}/profile" class="btn gradient txt-shadow">Meu perfil</a>
       </li>
       <li class="flex-center h100">
-        <a href="./logout" class="btn gradient txt-shadow">Sair</a>
+        <a href="{{BASE}}/logout" class="btn gradient txt-shadow">Sair</a>
       </li>
       {% else %}
       <li class="flex-center h100">
-        <a href="./signup" class="btn gradient txt-shadow">Cadastrar</a>
+        <a href="{{BASE}}/signup" class="btn gradient txt-shadow">Cadastrar</a>
       </li>
       <li class="flex-center h100">
-        <a href="./login" class="btn gradient txt-shadow">Entrar</a>
+        <a href="{{BASE}}/login" class="btn gradient txt-shadow">Entrar</a>
       </li>
       {% endif %}
     </ul>

@@ -1,6 +1,6 @@
 {% extends 'templates/base.html' %}
 
-{% block BASE %}http://localhost/likn/{% endblock %}
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
       {% if error %}
       <span class="error">{{error.msg}}</span>
       {% endif %}
-      <form action="./signup-user" method="POST" class="w100 flex-center-collumn">
+      <form action="{{BASE}}/signup-user" method="POST" class="w100 flex-center-collumn">
         <input class="link-input input radius" type="text" placeholder="Nome" name="name" required/>
         <input class="link-input input radius" type="email" placeholder="Email" name="email" required/>
         <input class="link-input input radius" type="password" placeholder="Senha" name="password" required/>

@@ -1,6 +1,6 @@
 {% extends 'templates/base.html' %}
 
-{% block BASE %}http://localhost/likn/{% endblock %}
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Teste {% endblock %}
 
 {% block content %}
@@ -12,13 +12,13 @@
     <nav class="flex-center w100">
 
       <div>
-        <a href="./short" class="flex-between box-shadow radius tool btn">
+        <a href="{{BASE}}/short" class="flex-between box-shadow radius tool btn">
           <i class="fas fa-link txt-shadow"></i>
           <p>Encurtar um link</p>
           <i class="far fa-question-circle txt-shadow"></i>
         </a>
 
-        <a href="./details" class="flex-between box-shadow radius tool btn">
+        <a href="{{BASE}}/details" class="flex-between box-shadow radius tool btn">
           <i class="fas fa-chart-bar txt-shadow"></i>
           <p>Monitorar um link</p>
           <i class="far fa-question-circle txt-shadow"></i>
@@ -26,13 +26,13 @@
       </div>
 
       <div>
-        <a href="./mylinks" class="flex-between box-shadow radius tool btn">
+        <a href="{{BASE}}/mylinks" class="flex-between box-shadow radius tool btn">
           <i class="fas fa-eye txt-shadow"></i>
           <p>Ver meus links</p>
           <i class="far fa-question-circle txt-shadow"></i>
         </a>
 
-        <a href="./profile" class="flex-between box-shadow radius tool btn">
+        <a href="{{BASE}}/profile" class="flex-between box-shadow radius tool btn">
           <i class="fas fa-user-circle txt-shadow"></i>
           <p>Meu perfil</p>
           <i class="far fa-question-circle txt-shadow"></i>

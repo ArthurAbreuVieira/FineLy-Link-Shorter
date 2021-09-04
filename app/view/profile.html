@@ -1,6 +1,6 @@
 {% extends 'templates/base.html' %}
 
-{% block BASE %}http://localhost/likn/{% endblock %}
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
@@ -43,5 +43,5 @@
   </div>
 </main>
 
-<script type="module" src="http://localhost/likn/public/js/updateUser.js"></script>
+<script type="module" src="{{BASE}}/public/js/updateUser.js"></script>
 {% endblock %}

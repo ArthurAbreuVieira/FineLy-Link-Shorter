@@ -1,6 +1,6 @@
 {% extends 'templates/base.html' %}
 
-{% block BASE %}http://localhost/likn/{% endblock %}
+{% block BASE %}{{BASE}}{% endblock %}
 {% block title %} Teste {% endblock %}
 
 {% block content %}
@@ -8,7 +8,7 @@
   <div class="container flex-center-collumn">
     <div class="logo"><img src="" alt="logo"></div>
     <div class="w100 flex">
-      <form action="./short" method="POST" class="w100 flex-center-collumn">
+      <form action="{{BASE}}/short" method="POST" class="w100 flex-center-collumn">
         <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url"/>
         <input class="btn input gradient txt-shadow radius" type="submit" value="Encurtar" />
       </form>

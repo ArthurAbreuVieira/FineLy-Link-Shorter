@@ -30,6 +30,7 @@ class LinkController extends Controller {
     $links = $this->model->getLinksFromUser();
     $params['user'] = $user;
     $params['links'] = $links;
+    $params["BASE"] = $_ENV['BASE'];
     $this->load('my_links.html', $params);
   }
 
@@ -67,6 +68,7 @@ class LinkController extends Controller {
       }
     }
     $data['user'] = $_SESSION['user'];
+    $data["BASE"] = $_ENV['BASE'];
     $this->load('details.html', $data);
   }
 
@@ -74,7 +76,8 @@ class LinkController extends Controller {
     if(!isset($_POST['url']) || empty($_POST['url'])){
       $this->load('short.html',[
         "error" => 'empty_url',
-        "user" => UserController::userIsLoggedIn()?$_SESSION['user']:NULL
+        "user" => UserController::userIsLoggedIn()?$_SESSION['user']:NULL,
+        "BASE" => $_ENV['BASE']
       ]);
       die(); 
     }
@@ -101,6 +104,7 @@ class LinkController extends Controller {
     if(UserController::userIsLoggedIn()) {
       $data["user"] = $_SESSION['user'];
     }
+    $data["BASE"] = $_ENV['BASE'];
     $this->load('short.html',$data);
   }
 
