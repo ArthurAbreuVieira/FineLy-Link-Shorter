@@ -1,5 +1,5 @@
-import httpFetch from 'http://localhost/likn/public/js/httpFetch.js';
-import fragments from 'http://localhost/likn/public/js/fragments.js';
+import httpFetch from './httpFetch.js';
+import fragments from './fragments.js';
 
 const link = {
   id: document.getElementById('linkId') ? document.getElementById('linkId').innerText : null,

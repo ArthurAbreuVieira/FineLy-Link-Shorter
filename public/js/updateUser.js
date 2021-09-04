@@ -1,5 +1,5 @@
-import fragments from 'http://localhost/likn/public/js/fragments.js';
-import httpFetch from 'http://localhost/likn/public/js/httpFetch.js';
+import fragments from './fragments.js';
+import httpFetch from './httpFetch.js';
 
 const params = {
   type: null,

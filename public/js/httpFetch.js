@@ -1,6 +1,8 @@
+import env from "./env.js";
+
 const httpFetch = {
   updateUser(params) {
-    fetch("http://localhost/likn/update/", {
+    fetch(`${env.BASE}/update/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -24,7 +26,7 @@ const httpFetch = {
       });
   },
   updateLink(params, action) {
-    fetch(`http://localhost/likn/${action}/`, params)
+    fetch(`${env.BASE}/${action}/`, params)
       .then(response => response.json())
       .then(json => {
         console.log(json);
