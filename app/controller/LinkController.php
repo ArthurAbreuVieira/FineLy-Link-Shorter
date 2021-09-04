@@ -90,7 +90,6 @@ class LinkController extends Controller {
       'id' => $pageId,
       'owner' => NULL,
       'redirect' => $url,
-      'shorted' => $shortedUrl,
       'initial_redirect' => $url,
       'created_at' => "NOW()",
       'click_count' => 0
@@ -98,6 +97,7 @@ class LinkController extends Controller {
 
     $this->model->insertUrlInDatabase($data);
 
+    $data['shorted'] = $shortedUrl;
     if(UserController::userIsLoggedIn()) {
       $data["user"] = $_SESSION['user'];
     }

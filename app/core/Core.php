@@ -16,8 +16,8 @@ class Core {
     $uri = $this->sanitizeUri($uri);
 
     
-    
-    include_once 'D:\laragon\www\Likn\routes\web.php';
+    $routes = $_ENV['BASE']."/routes/web.php";
+    include_once dirname(dirname(__DIR__))."/routes/web.php";
     
     if(!$this->checkRoute($uri) && !$this->pageExists($uri)) {
       echo 'route not found';

@@ -20,6 +20,7 @@ class LinkModel extends Database {
       $date = new \DateTime($link['created_at']);
       $date = $date->format('d-m-Y H:i:s');
       $links[$key]['created_at'] = $date;
+      $links[$key]['shorted'] = $_ENV['BASE']."/".$link['id'];
     }
 
     return $links;
@@ -33,7 +34,7 @@ class LinkModel extends Database {
         $date = new \DateTime($linkData['created_at']);
         $date = $date->format('d-m-Y H:i:s');
         $linkData['created_at'] = $date;
-
+        $linkData['shorted'] = $_ENV['BASE']."/".$linkData['id'];
         return $linkData;
       }
     }
