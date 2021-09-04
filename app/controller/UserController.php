@@ -14,12 +14,12 @@ class UserController extends Controller {
 
   public function signUp() {
     if(self::userIsLoggedIn()) {
-      header('location: home');
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
 
     if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
-      header('location: signup');
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
 
@@ -56,17 +56,17 @@ class UserController extends Controller {
     ];
 
     $this->model->signUpUser($values);
-    header('Location: home');
+    header('location:'.$_ENV['BASE'].'/home');
   }
 
   public function login() {
     if(self::userIsLoggedIn()) {
-      header("Location: home");
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
 
     if(!isset($_POST['email']) && !isset($_POST['password'])) {
-      header('location: login');
+      header('location:'.$_ENV['BASE'].'/login');
       die();
     }
 
@@ -94,7 +94,7 @@ class UserController extends Controller {
         "name" => $userData['name'],
         "email" => $userData['email']
       ];
-      header('Location: home');
+      header('location:'.$_ENV['BASE'].'/home');
     } else {
       $this->load('login.html',[
         "error" => [
@@ -108,7 +108,7 @@ class UserController extends Controller {
   public function logout()  {
     unset($_SESSION['user']);
     session_destroy();
-    header("Location: ./home");
+    header('location:'.$_ENV['BASE'].'/home');
     die();
   }
 
@@ -158,7 +158,8 @@ class UserController extends Controller {
         die;
       }
     } else {
-      header("Location: home");die;
+      header('location:'.$_ENV['BASE'].'/home');
+      die;
     }
   }
 }

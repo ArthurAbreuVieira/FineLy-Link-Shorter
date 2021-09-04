@@ -91,7 +91,7 @@ class Core {
       $method = $this->getMethod($route[1]['call']);
     }
 
-    $params["base"] = "http://localhost/likn";
+    $params["base"] = $_ENV['BASE'];
 
     call_user_func_array([new $controller, $method], [$params]);
   }

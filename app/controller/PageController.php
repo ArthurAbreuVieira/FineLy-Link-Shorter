@@ -24,7 +24,7 @@ class PageController extends Controller{
 
   public function signUp() {
     if(UserController::userIsLoggedIn()) {
-      header('location: home');
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
 
@@ -33,7 +33,7 @@ class PageController extends Controller{
   
   public function login() {
     if(UserController::userIsLoggedIn()) {
-      header("Location: home");
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
 
@@ -42,7 +42,7 @@ class PageController extends Controller{
   
   public function profile() {
     if(!UserController::userIsLoggedIn()) {
-      header("Location: home");
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
     $params = [];

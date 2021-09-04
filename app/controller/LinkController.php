@@ -18,7 +18,7 @@ class LinkController extends Controller {
 
   public function myLinksPage() {
     if(!UserController::userIsLoggedIn()) {
-      header('location: home');
+      header('location:'.$_ENV['BASE'].'/home');
       die();
     }
     $params = [];
@@ -35,7 +35,7 @@ class LinkController extends Controller {
 
   public function linkDetailsPage() {    
     if(!UserController::userIsLoggedIn()) {
-      header('location: http://localhost/likn/home');
+      header('location: '.$_ENV['BASE'].'/home');
       die();
     }
 
@@ -81,7 +81,7 @@ class LinkController extends Controller {
 
     $url = $_POST['url'];
     $pageId = $this->generatePageId($url);
-    $shortedUrl = "http://localhost/likn/".$pageId;
+    $shortedUrl = $_ENV['BASE']."/$pageId";
     
     $date = new \DateTime();
     $timestamp = $date->getTimestamp();
@@ -149,7 +149,7 @@ class LinkController extends Controller {
       }
 
     } else {
-      header("Location: home");die;
+      header("Location:".$_ENV['BASE']."/home");die;
     }
   }
 

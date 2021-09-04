@@ -5,7 +5,12 @@ namespace App\Core;
 class Database {
   private $conn;
   public function __construct() {
-    $this->conn = new \PDO('mysql:host=localhost;dbname=FineLy', 'root', '');
+    $driver   = $_ENV['DATABASE_DRIVER'];
+    $host     = $_ENV['DATABASE_HOST'];
+    $dbname   = $_ENV['DATABASE_DBNAME'];
+    $user     = $_ENV['DATABASE_USER'];
+    $password = $_ENV['DATABASE_PASSWORD'];
+    $this->conn = new \PDO("$driver:host=$host;dbname=$dbname", $user, $password);
   }
 
   public function selectOnly($table, $collumn, $value, $select = '*') {
