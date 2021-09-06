@@ -78,6 +78,70 @@ const fragments = {
           </div>
         </div>
       </div>
+    </div>`,
+    clickModal: `
+    <div class="modal flex-center">
+      <div class="w100 flex-center" style="height: 90%;">
+        <div class="container h100">
+          <div class="flex-between">
+            <h3>Informações do click</h3>
+            <i id="close" class="far fa-times-circle txt-shadow"></i>
+          </div>
+          <div class="h100" style="overflow-y: scroll;">
+            <div class="flex-collumn">
+              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+                <h3 style="font-weight:bold" class="txt-shadow">Dados capturados:</h3>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">IP:</label>
+                  <span>{!ip!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">Versão IP:</label>
+                  <span>{!ip_version!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">Data:</label>
+                  <span>{!date!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">Horario:</label>
+                  <span>{!hour!}</span>
+                </div>
+              </div>
+              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+                <h3 style="font-weight:bold" class="txt-shadow">Localização:</h3>
+                <div class="warnig">
+                  <i>i</i>
+                  <p>A Localização capturada não é totalmente precisa</p>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">Cidade:</label>
+                  <span>{!city!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">CEP:</label>
+                  <span>{!zip!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">País:</label>
+                  <span>{!country!}</span>
+                </div>
+              </div>
+              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+                <h3 style="font-weight:bold" class="txt-shadow">Google Maps:</h3>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">longitude:</label>
+                  <span>{!long!}</span>
+                </div>
+                <div class="row txt-shadow">
+                  <label class="main-green" style="font-weight: bold;font-size: 22px">latitude:</label>
+                  <span>-{!lat!}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>`
 }
 
