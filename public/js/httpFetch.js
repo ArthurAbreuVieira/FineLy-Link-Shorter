@@ -40,6 +40,23 @@ const httpFetch = {
           }
         }
       });
+  },
+  fetchClick(id) {
+    fetch(`${env.BASE}/click/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `id=${id}`
+    })
+    .then(response => response.json())
+    .then(json => {
+      if(json.status === "success") {
+        console.log('asdasd');
+        return JSON.parse(json.click);
+      }
+      return false;
+    });
   }
 }
 export default httpFetch;

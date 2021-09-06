@@ -90,19 +90,5 @@
 </main>
 
 <script type="module" src="{{BASE}}/public/js/updateLink.js"></script>
-<script>
-  const clickCollection = document.querySelectorAll("[data-click]");
-  clickCollection.forEach(click => {
-    click.addEventListener("click", () => {
-      const id = click.dataset.click;
-      fetch("http://localhost/likn/click/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `id=${id}`
-      }).then(r=>r.json()).then(r=>console.log(r.click));
-    });
-  });
-</script>
+<script type="module" src="{{BASE}}/public/js/getClick.js"></script>
 {% endblock %}
