@@ -58,7 +58,7 @@ class LinkController extends Controller {
         $linkData['created_at'] = $date;
         $data["link"] = $linkData;
   
-        $clickData = $this->clickModel->getClickData($linkData['id']);
+        $clickData = $this->clickModel->getClicks($linkData['id']);
         $data['clicks'] = $clickData;
       } else {
         $data["error"] = [

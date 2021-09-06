@@ -21,7 +21,7 @@ class ClickModel extends Database {
     $this->update("links", "click_count", $clickCount, "id", $link_id);
   }
 
-  public function getClickData($link_id) {
+  public function getClicks($link_id) {
     $data = $this->selectMany("clicks", "link", $link_id);
     if(empty($data)) {
       return false;

@@ -90,4 +90,13 @@
 </main>
 
 <script type="module" src="{{BASE}}/public/js/updateLink.js"></script>
+<script>
+  const clickCollection = document.querySelectorAll("[data-click]");
+  clickCollection.forEach(click => {
+    click.addEventListener("click", () => {
+      const id = click.dataset.click;
+      alert(id);
+    });
+  });
+</script>
 {% endblock %}
