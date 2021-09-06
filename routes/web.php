@@ -14,4 +14,5 @@ $this->post("edit", "LinkController@editLink");
 $this->post("delete", "LinkController@deleteLink");
 $this->get("profile", "PageController@profile");
 $this->post("update", "UserController@updateUserData");
+$this->post("click", "LinkController@getClick");
 

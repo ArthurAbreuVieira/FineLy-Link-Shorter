@@ -36,4 +36,12 @@ class ClickModel extends Database {
     return $data; 
   }
 
+
+  public function getClickData($id = null) {
+    $data = $this->selectOnly("clicks", "id", $id);
+    if(!empty($data)) {
+      return $data;
+    }
+    return false;
+  }
 }

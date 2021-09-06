@@ -198,6 +198,40 @@ class LinkController extends Controller {
     }
   }
 
+  public function getClick() {
+    if(!UserController::userIsLoggedIn()) {
+      $response = [
+        "status" => "error",
+        "msg" => "Não foi possivel buscar os dados do click."
+      ];
+      $json = json_encode($response);
+      echo $json;
+      die;
+    }
+    if((isset($_SERVER['CONTENT_TYPE'], $_POST['id']) && $_SERVER['CONTENT_TYPE']==="application/x-www-form-urlencoded")) {
+      
+      $id = $_POST['id'];
+      $click = $this->clickModel->getClickData($id);
+      if(!empty($click)) {
+        $click = $click['ipstack'];
+        $response = [
+          "status" => "success",
+          "click" => $click
+        ];
+        $json = json_encode($response);
+        echo $json;
+        die;
+      }
+    }
+    $response = [
+      "status" => "error",
+      "msg" => "Não foi possivel buscar os dados do click."
+    ];
+    $json = json_encode($response);
+    echo $json;
+    die;
+  }
+
   public function redirect($data) {
     
     $this->clickModel->trackClick($data['id']);
