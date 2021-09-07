@@ -8,6 +8,18 @@ class ClickModel extends Database {
 
   public function trackClick($link_id) {
     $ip = $_SERVER["REMOTE_ADDR"];
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ip = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ip = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ip = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ip = $_SERVER['REMOTE_ADDR'];
     $ipStackData = file_get_contents("http://api.ipstack.com/$ip?access_key=39cbc49ed3d82e6a82299056a0c3fd8e");
     $values = [
       "link" => $link_id,
