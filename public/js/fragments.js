@@ -90,6 +90,12 @@ const fragments = {
           <div class="h100" style="overflow-y: scroll;">
             <div class="flex-collumn">
               <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+                <h3 style="font-weight:bold" class="txt-shadow">Resumo:</h3>
+                <div class="row txt-shadow">
+                  <span>Alguém clicou no seu link as {!hour!} do dia {!date!}. O IP de quem clicou é {!ip!} e sua possivel localização se encontra em {!country!}, {!city!}, {!zip!} nas coordenadas Longitude: {!long!} e Latitude: {!lat!}</span>
+                </div>
+              </div>
+              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Dados capturados:</h3>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">IP:</label>
