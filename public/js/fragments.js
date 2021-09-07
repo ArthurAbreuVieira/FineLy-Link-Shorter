@@ -82,13 +82,13 @@ const fragments = {
     clickModal: `
     <div class="modal flex-center">
       <div class="w100 flex-center" style="height: 90%;">
-        <div class="container h100">
+        <div class="container w100 h100">
           <div class="flex-between">
             <h3>Informações do click</h3>
             <i id="close" class="far fa-times-circle txt-shadow"></i>
           </div>
-          <div class="h100" style="overflow-y: scroll;">
-            <div class="flex-collumn">
+          <div class="h100 w100" style="overflow-y: scroll;">
+            <div class="flex-collumn w100">
               <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Resumo:</h3>
                 <div class="row txt-shadow">
@@ -116,9 +116,10 @@ const fragments = {
               </div>
               <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Localização:</h3>
-                <div class="warnig">
-                  <i>i</i>
+                <div class="warning flex-evenly">
+                  <i class="fas fa-exclamation-triangle"></i>
                   <p>A Localização capturada não é totalmente precisa</p>
+                  <i class="fas fa-exclamation-triangle"></i>
                 </div>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">Cidade:</label>

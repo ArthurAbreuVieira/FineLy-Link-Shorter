@@ -214,6 +214,24 @@ p {
   width: 60%;
 }
 
+.warning {
+  background-color: rgba(0, 0, 0, 0.192);
+  color: rgb(255, 208, 0);
+  font-weight: 500;
+  font-size: 25px;
+  padding: 8px;
+  border: 3px solid rgb(255, 187, 0);
+  text-align: center;
+  margin: 60px;
+  border-radius: 2px;
+  width: 60%;
+}
+
+.warning p, .warning .fas {
+  color: rgb(255, 238, 0);
+  text-shadow: 2px 2px 20px black;
+}
+
 .success {
   background-color: rgba(0, 0, 0, 0.192);
   color: #00ce3e;
