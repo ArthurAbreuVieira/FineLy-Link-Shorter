@@ -135,7 +135,7 @@ const fragments = {
                 </div>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">latitude:</label>
-                  <span>-{!lat!}</span>
+                  <span>{!lat!}</span>
                 </div>
               </div>
             </div>

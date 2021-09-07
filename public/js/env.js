@@ -1,5 +1,5 @@
 const env = {
-  BASE: "http://localhost/likn"
+  BASE: "http://localhost/finely"
 }
 
 export default env;

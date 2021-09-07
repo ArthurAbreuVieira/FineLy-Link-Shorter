@@ -212,8 +212,20 @@ class LinkController extends Controller {
       
       $id = $_POST['id'];
       $click = $this->clickModel->getClickData($id);
+      $stamp = $click['clicked_at'];
       if(!empty($click)) {
         $click = $click['ipstack'];
+        $click = json_decode($click,true);
+        
+        $date = new \DateTime($stamp);
+        $date = $date->format('d-m-Y');
+        $click['date'] = str_replace('-', '/', $date);
+
+        $hour = new \DateTime($stamp);
+        $hour = $hour->format('H-i-s');
+        $click['hour'] = str_replace('-', ':', $hour);
+
+        $click = json_encode($click);
         $response = [
           "status" => "success",
           "click" => $click

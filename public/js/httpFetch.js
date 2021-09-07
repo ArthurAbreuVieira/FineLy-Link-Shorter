@@ -41,7 +41,7 @@ const httpFetch = {
         }
       });
   },
-  fetchClick(id) {
+  fetchClick(id, callback) {
     fetch(`${env.BASE}/click/`, {
       method: "POST",
       headers: {
@@ -51,11 +51,11 @@ const httpFetch = {
     })
     .then(response => response.json())
     .then(json => {
-      if(json.status === "success") {
-        console.log('asdasd');
-        return JSON.parse(json.click);
+      json.click = JSON.parse(json.click);
+      for(let key in json.click) {
+        json.click[key] = json.click[key] === null ? "Indefinido" : json.click[key];
       }
-      return false;
+      callback(json);
     });
   }
 }
