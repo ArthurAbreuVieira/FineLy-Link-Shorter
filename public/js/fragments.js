@@ -89,13 +89,13 @@ const fragments = {
           </div>
           <div class="h100 w100" style="overflow-y: scroll;">
             <div class="flex-collumn w100">
-              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+              <div style="margin-top: 25px;" class="overflow-hidden w100 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Resumo:</h3>
                 <div class="row txt-shadow">
                   <span>Alguém clicou no seu link as {!hour!} do dia {!date!}. O IP de quem clicou é {!ip!} e sua possivel localização se encontra em {!country!}, {!city!}, {!zip!} nas coordenadas Longitude: {!long!} e Latitude: {!lat!}</span>
                 </div>
               </div>
-              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+              <div style="margin-top: 25px;" class="overflow-hidden w100 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Dados capturados:</h3>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">IP:</label>
@@ -114,7 +114,7 @@ const fragments = {
                   <span>{!hour!}</span>
                 </div>
               </div>
-              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+              <div style="margin-top: 25px;" class="overflow-hidden w100 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Localização:</h3>
                 <div class="warning flex-evenly">
                   <i class="fas fa-exclamation-triangle"></i>
@@ -134,7 +134,7 @@ const fragments = {
                   <span>{!country!}</span>
                 </div>
               </div>
-              <div style="margin-top: 25px;" class="overflow-hidden w50 flex-collumn  ">
+              <div style="margin: 25px 0 30px 0;" class="overflow-hidden w100 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Google Maps:</h3>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">longitude:</label>
@@ -144,6 +144,7 @@ const fragments = {
                   <label class="main-green" style="font-weight: bold;font-size: 22px">latitude:</label>
                   <span>{!lat!}</span>
                 </div>
+                <div id="map"></div>
               </div>
             </div>
           </div>

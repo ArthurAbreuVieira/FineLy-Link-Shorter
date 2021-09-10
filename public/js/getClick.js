@@ -4,9 +4,10 @@ import fragments from "./fragments.js";
 const clickCollection = document.querySelectorAll("[data-click]");
 clickCollection.forEach(click => {
   click.addEventListener("click", async () => {
+
     const id = click.dataset.click;
     httpFetch.fetchClick(id, response => {
-      if(response.status === "success") {
+      if (response.status === "success") {
         const click = response.click;
         let modal = fragments.clickModal;
         modal = modal.replaceAll("{!ip!}", click.ip);
@@ -25,6 +26,16 @@ clickCollection.forEach(click => {
         close.addEventListener('click', () => {
           main.removeChild(modalFragment);
         });
+        if (!isNaN(Number(click.longitude)) && !isNaN(Number(click.longitude))) {
+          const map = document.getElementById('map');
+          const html = `<iframe src="http://maps.google.com/maps?q=${click.latitude}, ${click.longitude}&z=18&output=embed&t=k" width="100%" height="100%" frameborder="0" style="border:0"></iframe>`;
+          const iFrame = document.createRange().createContextualFragment(html).firstElementChild;
+          map.appendChild(iFrame);
+        } else {
+          const map = document.getElementById('map');
+          const mapContainer = map.parentElement;
+          mapContainer.removeChild(map);
+        }
       }
     });
   });

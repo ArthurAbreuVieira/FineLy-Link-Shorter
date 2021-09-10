@@ -34,7 +34,7 @@ p {
 /* Collors */
 
 .main-green {
-  color: #2ebd59;
+  color: #2ebd59 !important;
 }
 
 
@@ -602,7 +602,7 @@ p {
 .row a, .row span {
   font-size: 20px !important;
   font-weight: bold !important;
-  color: #b8b8b8 !important;
+  color: #b8b8b8;
 }
 
 .modal {
@@ -643,4 +643,10 @@ p {
 #profile-info div label {
   font-weight: bold;
   word-wrap: break-word;
+}
+
+#map {
+  width: 95%;
+  height: 480px;
+  margin-top: 25px;
 }
