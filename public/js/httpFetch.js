@@ -52,8 +52,14 @@ const httpFetch = {
     .then(response => response.json())
     .then(json => {
       json.click = JSON.parse(json.click);
+      console.log(json.click);
       for(let key in json.click) {
         json.click[key] = json.click[key] === null ? "Indefinido" : json.click[key];
+        if(typeof json.click[key] === "object") {
+          for(let k in json.click[key]) {
+            json.click[key][k] = json.click[key][k] === null ? "Indefinido" : json.click[key][k];
+          }
+        }
       }
       callback(json);
     });
