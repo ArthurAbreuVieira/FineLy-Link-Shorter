@@ -22,6 +22,10 @@ body {
   background-color: #09191c;
 }
 
+main {
+  padding-top: 100px;
+}
+
 h3 {
   font-size: 30px;
 }
@@ -301,6 +305,10 @@ p {
   margin-top: 10px;
 }
 
+#features {
+  margin: 350px 0;
+}
+
 #features ul {
   margin-top: 15px;
 }
@@ -314,8 +322,8 @@ p {
 }
 
 .card {
-  width: 300px;
-  height: 250px;
+  width: 100%;
+  max-width: 300px;
   padding: 25px;
   border: 2px solid #2ebd59;
   border-radius: 20px;
@@ -343,6 +351,10 @@ p {
   font-size: 30px;
 }
 
+#cards {
+  padding: 0 15px;
+}
+
 #cards h5 {
   font-size: 16px;
 }
@@ -353,6 +365,14 @@ p {
 
 #cards a {
   width: 50px;
+}
+
+.card-pair {
+  display: flex;
+}
+
+[data-js="signup_btn"] {
+  font-size: 18px !important;
 }
 
 .tool {
@@ -388,6 +408,10 @@ p {
   color: #2ebd59;
 }
 
+.list {
+  width: 80%;
+}
+
 #list li {
   width: 100%;
   min-height: 70px;
@@ -397,6 +421,15 @@ p {
   justify-content: center;
   border: 1px rgb(0, 0, 0) solid;
   padding: 25px 0;
+}
+
+.li-code {
+  border-right: 2px solid green;
+  padding-right: 25px;
+}
+
+.li-redirect {
+  width: 50%;
 }
 
 .hide {
@@ -443,7 +476,7 @@ p {
 }
 
 .strip {
-  padding: 20px;
+  padding: 10px;
 }
 
 /* details page */
@@ -649,4 +682,65 @@ p {
   width: 95%;
   height: 480px;
   margin-top: 25px;
+}
+
+@media screen and (max-width: 795px) {
+  .container {
+    width: 95%;
+  }
+  .container nav {
+    flex-direction: column;
+    width: 90%;
+  }
+  .input {
+    width: 100%;
+  }
+  .tool {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .list {
+    width: 97%;
+  }
+  #list li {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  #list li div:first-child {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #list li div:first-child div {
+    margin-bottom: 25px;
+  }
+  #list li div:first-child div:last-child {
+    margin: 0;
+  }
+  .li-code {
+    border-right: 0;
+    padding-right: 0;
+    border-bottom: 2px solid green;
+    padding-bottom: 25px;
+  }
+  .strip:first-child {
+    padding: 20px 0;
+    width: 100%;
+  }
+  .strip .btn {
+    font-size: 14px;
+    word-break: break-word;
+  }
+  #features {
+    padding: 0 15px;
+  }
+  #cards {
+    flex-direction: column;
+  }
+  #cards .card-pair {
+    flex-direction: column;
+  }
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

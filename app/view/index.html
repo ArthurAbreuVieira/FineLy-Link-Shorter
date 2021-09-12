@@ -7,8 +7,7 @@
 {% if user %}
 {% include 'index.loggedin.html' %}
 {% else %}
-<main class="w100 h100 flex-center-collumn bg-image">
-  {{BASE}}
+<main class="w100 flex-center-collumn bg-image">
   <div class="flex-center-collumn container box-shadow">
     <div class="logo"><img src="" alt="LOGO"></div>
     <div class="w100 flex">
@@ -31,7 +30,7 @@
   <h6><strong>CRIAR EFEITO PARALAX</strong></h6>
   <h6><strong>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</strong></h6>
 </main>
-<section id="features" class="w100 h100 flex-center">
+<section id="features" class="w100 flex-center">
   <div>
     <h3 class="txt-shadow main-green" style="font-size: 40px;">Beneficios de criar uma conta</h3>
     <p style="margin-top: 25px;">Criando uma conta você tem acesso a funcionalidades gratuitas para acompanhar o que
@@ -44,15 +43,15 @@
       <li>Alterar o endereço de redirecionamento do seu link depois de criado</li>
       <li>Utilizar novas funcionalidades implementadas futuramente</li>
     </ul>
-    <button data-js="signup_btn" style="margin-top: 25px;width: 50%;" class="input gradient btn radius txt-shadow">
+    <button data-js="signup_btn" style="margin-top: 25px;" class="input gradient btn radius txt-shadow">
       Cadastrar gratuitamente
     </button>
   </div>
 </section>
-<section id="cards" class="w100 h100 flex-center">
+<section id="cards" class="w100 flex-center">
 
-  <div class="flex-collumn">
-    <div class="flex">
+  <div class="flex-collumn w100">
+    <div class="card-pair w100">
       <div class="card">
         <div class="card-header flex w100">
           <div class="card-icon flex-center">
@@ -82,7 +81,7 @@
       </div>
     </div>
 
-    <div class="flex">
+    <div class="card-pair">
       <div class="card">
         <div class="card-header flex w100">
           <div class="card-icon flex-center">
@@ -115,7 +114,7 @@
 
 
   <div class="">
-    <div class="card" style="height: 300px;">
+    <div class="card">
       <div class="card-header flex w100">
         <div class="card-icon flex-center">
           <i class="fas fa-star txt-shadow"></i>
@@ -127,7 +126,7 @@
       <div>
         <p>Crie quantos links encurtados quiser e desfrute de todas as funcionalidades criando uma conta gratuitamente.
         </p>
-        <button data-js="signup_btn" style="margin-top:30px;width: 100%;" class="input btn gradient txt-shadow">
+        <button data-js="signup_btn" style="margin-top:30px;width: 100%;" class="input btn gradient txt-shadow radius">
           Cadastrar gratuitamente
         </button>
       </div>

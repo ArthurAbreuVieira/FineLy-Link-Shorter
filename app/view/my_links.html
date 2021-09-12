@@ -10,17 +10,17 @@
   {% endif %}
   <h2>Olá, {{user.name|capitalize}}.</h2>
   <h3>Abaixo estão todos os seus links encurtados</h3>
-  <div style="width: 80%;" class="flex-center">
+  <div class="flex-center list">
     <ul class="w100 flex-center-collumn" id="list">
       {% for link in links %}
-      <li class="w100 flex-j-center-collumn">
+      <li class="w100 flex-j-center-collumn" style="border-radius: 15px;">
         <div class="h100 flex-j-evenly">
-          <div class="flex-collumn" style="border-right: 2px solid green;padding-right: 25px;">
-            <div>CODIGO:</div>
-            <div><a href="{{link.shorted}}">{{link.id}}</a></div>
+          <div class="flex-collumn li-code">
+            <span>CÓDIGO:</span>
+            <span><a href="{{link.shorted}}">{{link.id}}</a></span>
           </div>
-          <div class="flex-collumn overflow-hidden" style="width:50%">
-            <div>Redirecionamento:</div>
+          <div class="flex-collumn overflow-hidden li-redirect">
+            <span>Redirecionamento:</span>
             <a href="{{link.redirect}}">{{link.redirect}}</a>
           </div>
           <div class="flex-collumn">
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div id="details" class="hide show flex-evenly-collumn overflow-hidden">
-          <div class="strip">
+          <div class="strip flex-center">
             <a href="{{BASE}}/details/{{link.id}}" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
           </div>
           <div class="w100 flex-start-collumn strip">
