@@ -10,11 +10,11 @@
     <header class="details-header">
       <div>
         <span>Código do link:</span>
-        <h3>{{link.id}}</h3>
+        <h3 class="main-green">{{link.id}}</h3>
       </div>
       <div style="width: 65%" class="overflow-hidden">
         <span>Redirecionamento atual:</span>
-        <h3><a href="{{link.redirect}}" id="linkRedirect">{{link.redirect}}</a></h3>
+        <h3><a class="main-green" href="{{link.redirect}}" id="linkRedirect">{{link.redirect}}</a></h3>
       </div>
       <div class="buttons-container">
         <button data-btn="actions" data-action="edit" class="btn-action btn-edit">EDITAR</button>
@@ -34,7 +34,7 @@
             <h3>Histórico de cliques</h3>
             <div class="gradient-border"></div>
           </header>
-          <div class="history">
+          <div class="history scroll">
             <ul>
               {% for click in clicks %}
               <li class="flex-between">

@@ -87,12 +87,12 @@ const fragments = {
             <h3>Informações do click</h3>
             <i id="close" class="far fa-times-circle txt-shadow"></i>
           </div>
-          <div class="h100 w100" style="overflow-y: scroll;">
+          <div class="h100 w100 scroll" style="overflow-y: scroll;">
             <div class="flex-collumn w100">
               <div style="margin-top: 25px;" class="overflow-hidden w100 flex-collumn  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Resumo:</h3>
-                <div class="row txt-shadow">
-                  <span>Alguém clicou no seu link as {!hour!} do dia {!date!}. O IP de quem clicou é {!ip!} e sua possivel localização se encontra em {!country!}, {!city!}, {!zip!} nas coordenadas Longitude: {!long!} e Latitude: {!lat!}</span>
+                <div class="row">
+                  <span class="txt-shadow">Alguém clicou no seu link as {!hour!} do dia {!date!}. O IP de quem clicou é {!ip!} e sua possivel localização se encontra em {!country!}, {!city!}, {!zip!} nas coordenadas Longitude: {!long!} e Latitude: {!lat!}</span>
                 </div>
               </div>
               <div style="margin-top: 25px;" class="overflow-hidden w100 flex-collumn  ">
@@ -119,7 +119,6 @@ const fragments = {
                 <div class="warning flex-evenly">
                   <i class="fas fa-exclamation-triangle"></i>
                   <p>A Localização capturada não é totalmente precisa</p>
-                  <i class="fas fa-exclamation-triangle"></i>
                 </div>
                 <div class="row txt-shadow">
                   <label class="main-green" style="font-weight: bold;font-size: 22px">Cidade:</label>
