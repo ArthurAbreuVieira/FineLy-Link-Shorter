@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,39 @@
   <link rel="stylesheet" href="{% block BASE %}{% endblock %}/public/css/style.css">
   <title>Likn - {% block title %}{% endblock %}</title>
 </head>
+
 <body class="w100">
   {% include 'templates/header.html' %}
   {% block content %}{% endblock %}
   {% include 'templates/footer.html' %}
-  
+
   <script src="https://kit.fontawesome.com/0b3d3ca34d.js" crossorigin="anonymous"></script>
+  <script>
+    const open = document.querySelector("[data-menu=open]");
+    open.addEventListener("click", () => {
+      open.style.display = "none"
+      const closeContainer = document.querySelector(".menu-close-container");
+      closeContainer.style.display = "flex"
+
+      const header = document.getElementById("header");
+      const nav = document.querySelector("#header nav");
+      
+      header.style.height = "100%";
+      header.style.flexDirection = "column";
+      nav.style.display = "flex";
+      
+      const close = document.querySelector("[data-menu=close]");
+      close.addEventListener("click", () => {
+        closeContainer.style.display = "none"
+
+        header.style.height = "60px";
+        header.style.flexDirection = "row";
+        nav.style.display = "none";
+
+        open.style.display = "block"
+      });
+    });
+  </script>
 </body>
+
 </html>

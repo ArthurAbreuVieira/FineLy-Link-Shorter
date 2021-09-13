@@ -2,8 +2,14 @@
   <div class="logo">
     <img src="logo" alt="Logo Likn" />
   </div>
-  <nav class="header-nav h100">
+  <button data-menu="open" class="open-menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav class="header-nav w100 h100">
     <ul class="flex-evenly w100 h100">
+      <li class="flex-center h100 menu-close-container">
+        <span data-menu="close" class="btn red-gradient radius txt-shadow">Fechar menu</span>
+      </li>
       <li class="flex-center h100">
         <a href="{{BASE}}/short" class="link-nav txt-shadow">Encurtar</a>
       </li>
@@ -15,17 +21,17 @@
       </li>
       {% if user %}
       <li class="flex-center h100">
-        <a href="{{BASE}}/profile" class="btn gradient txt-shadow">Meu perfil</a>
+        <a href="{{BASE}}/profile" class="btn gradient radius txt-shadow">Meu perfil</a>
       </li>
       <li class="flex-center h100">
-        <a href="{{BASE}}/logout" class="btn gradient txt-shadow">Sair</a>
+        <a href="{{BASE}}/logout" class="btn gradient radius txt-shadow">Sair</a>
       </li>
       {% else %}
       <li class="flex-center h100">
-        <a href="{{BASE}}/signup" class="btn gradient txt-shadow">Cadastrar</a>
+        <a href="{{BASE}}/signup" class="btn gradient radius txt-shadow">Cadastrar</a>
       </li>
       <li class="flex-center h100">
-        <a href="{{BASE}}/login" class="btn gradient txt-shadow">Entrar</a>
+        <a href="{{BASE}}/login" class="btn gradient radius txt-shadow">Entrar</a>
       </li>
       {% endif %}
     </ul>
