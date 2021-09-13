@@ -694,10 +694,16 @@ p {
   text-shadow: 1px 1px 15px red !important;
 }
 
+.profile {
+  display: flex;
+}
+
 #profile-info {
-  width: 30%;
+  display: flex;
+  width: 50%;
   border-right: 3px #00ce3e solid;
   overflow: hidden;
+  margin-right: 30px;
 }
 
 .profile-pic {
@@ -713,6 +719,13 @@ p {
 #profile-info div label {
   font-weight: bold;
   word-wrap: break-word;
+}
+
+#updateForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #map {
@@ -834,5 +847,22 @@ p {
   }
   .warning i {
     font-size: 30px;
+  }
+  .profile {
+    flex-direction: column;
+  }
+  #profile-info  {
+    width: 100%;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    border-right: none;
+    border-bottom: 3px #00ce3e solid;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+  #profile-info img {
+    margin-right: 25px;
   }
 }

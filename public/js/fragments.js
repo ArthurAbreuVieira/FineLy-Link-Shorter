@@ -1,22 +1,22 @@
 const fragments = {
   formOptions:
   `<h3>Alterar dados</h3>
-  <div class="h100 w100 flex-start" style="margin: 30px 0 0 70px">
+  <div class="h100 w100 flex-start">
     <div class="flex-collumn row overflow-hidden" style="max-height: 95px;">
       <label class="txt-shadow">Nome:</label>
       <span class="txt-shadow">{!name!}</span>
-      <button data-edit="name" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>
+      <button data-edit="name" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>
       Editar</button>
     </div>
     <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
       <label class="txt-shadow">Email:</label>
       <span class="txt-shadow">{!email!}</span>
-      <button data-edit="email" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>Editar</button>
+      <button data-edit="email" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>Editar</button>
     </div>
     <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
       <label class="txt-shadow">Senha:</label>
       <span class="txt-shadow">• • • • • • • •</span>
-      <button data-edit="password" class="btn input txt-shadow gradient"><i class="fas fa-user-edit"></i>Editar</button>
+      <button data-edit="password" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>Editar</button>
     </div>
   </div>`,
   formUpdate: 
