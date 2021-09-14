@@ -6,7 +6,9 @@
 {% block content %}
 <main class="w100 h100 flex-center-column">
   <div class="container flex-center-column">
-    <div class="logo"><img src="" alt="logo"></div>
+    <div class="logo">
+      <img src="{{BASE}}/public/img/logo.png" class="logo" alt="LOGO">
+    </div>
     <div class="w100 flex-center-column">
       {% if error %}
       <span class="error">{{error.msg}}</span>
