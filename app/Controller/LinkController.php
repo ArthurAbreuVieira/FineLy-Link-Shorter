@@ -98,6 +98,8 @@ class LinkController extends Controller {
       'click_count' => 0
     ];
 
+    $data['redirect'] = str_starts_with($data['redirect'], 'http') ? $data['redirect'] : 'http://'.$data['redirect'];
+
     $this->model->insertUrlInDatabase($data);
 
     $data['shorted'] = $shortedUrl;
@@ -248,7 +250,7 @@ class LinkController extends Controller {
     
     $this->clickModel->trackClick($data['id']);
 
-    $url = str_starts_with($data['redirect'], 'http') ? $data['redirect'] : 'https://'.$data['redirect']; //NECESSITA DE MELHORIA!!!!!!!!!!!!!
+    $url = $data['redirect'];
     header('location:'.$url);
   }
 }
