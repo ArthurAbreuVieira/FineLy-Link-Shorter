@@ -12,6 +12,11 @@
   <h3 class="align-center">Abaixo estão todos os seus links encurtados</h3>
   <div class="flex-center list">
     <ul class="w100 flex-center-column" id="list">
+      {% if links != true %}
+        <li class="w100 flex-center-column" style="border-radius: 15px;">
+          <span style="font-size: 25px;font-weight: bold;">Você ainda não encurtou nenhum link!</span>
+        </li>
+      {% endif %}
       {% for link in links %}
       <li class="w100 flex-j-center-column" style="border-radius: 15px;">
         <div class="h100 flex-j-evenly">
