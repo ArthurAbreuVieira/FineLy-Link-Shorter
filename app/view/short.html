@@ -9,19 +9,20 @@
     <div class="logo"><img src="" alt="logo"></div>
     <div class="w100 flex">
       <form action="{{BASE}}/short" method="POST" class="w100 flex-center-collumn">
-        <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url"/>
+        <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url" />
         <input class="btn input gradient txt-shadow radius" type="submit" value="Encurtar" />
       </form>
     </div>
-    <div class="info"></div>
-    {% if error == 'empty_url' %}
+    <div class="info flex-center-collumn">
+      {% if error == 'empty_url' %}
       <h3>Digite uma url no campo acima e clique em encurtar.</h3>
-    {% else %}
+      {% else %}
       <h3>Resultado: </h3>
-      <p>URL original: {{redirect}}</p>
-      <p>URL encurtada: {{shorted}}</p>
-    {% endif %}
+      <p class="align-center" style="word-break: break-all;">URL original: <a class="main-green" href={{redirect}}>{{redirect}}</a></p>
+      <p class="align-center">URL encurtada: <a class="main-green" href="{{shorted}}">{{shorted}}</a></p>
+      {% endif %}
     </div>
+  </div>
   </div>
 </main>
 {% endblock %}
