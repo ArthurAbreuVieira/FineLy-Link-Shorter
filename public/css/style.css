@@ -267,7 +267,7 @@ p {
   height: 45px;
 }
 
-main .logo {
+main .logo, footer .logo {
   margin-bottom: 20px;
   width: 280px !important;
   height: 90px !important;
@@ -392,6 +392,7 @@ main .logo {
 
 #cards {
   padding: 0 15px;
+  margin-bottom: 100px;
 }
 
 #cards h5 {
@@ -745,6 +746,27 @@ main .logo {
   margin-top: 25px;
 }
 
+footer {
+  width: 100%;
+  min-height: 400px;
+  background-color: #131313;
+  box-shadow: 0px -2px 5px #00ce3e;
+}
+
+.github-logo {
+  filter: contrast(0) sepia(1) hue-rotate(260deg) invert(1) saturate(2.1) drop-shadow(2px 4px 1px #005319);
+  width: 150px;
+  height: 80px;
+}
+
+footer nav ul li::before {
+  content: '\2022';
+  margin: 0 10px;
+  color: #2ebd59;
+  font-size: 25px;
+  text-shadow: 2px 2px 10px black;
+}
+
 @media screen and (max-width: 795px) {
   .container {
     width: 95%;
@@ -878,5 +900,11 @@ main .logo {
   }
   #profile-info img {
     margin-right: 25px;
+  }
+  footer nav ul {
+    flex-direction: column;
+  }
+  footer nav ul li {
+    margin-bottom: 5px;
   }
 }
