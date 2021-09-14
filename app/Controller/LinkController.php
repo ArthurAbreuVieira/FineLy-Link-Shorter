@@ -18,7 +18,7 @@ class LinkController extends Controller {
 
   public function myLinksPage() {
     if(!UserController::userIsLoggedIn()) {
-      header('location:'.$_ENV['BASE'].'/home');
+      header('location:'.$_ENV['BASE'].'/login');
       die();
     }
     $params = [];
@@ -36,7 +36,7 @@ class LinkController extends Controller {
 
   public function linkDetailsPage() {    
     if(!UserController::userIsLoggedIn()) {
-      header('location: '.$_ENV['BASE'].'/home');
+      header('location: '.$_ENV['BASE'].'/login');
       die();
     }
 

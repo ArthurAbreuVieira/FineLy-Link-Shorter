@@ -29,9 +29,12 @@ const httpFetch = {
     fetch(`${env.BASE}/${action}/`, params)
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         if (json.status === "success") {
-          window.location.reload();
+          if(action === "edit") {
+            window.location.reload();
+          } else {
+            window.location = `${env.BASE}/mylinks/`;
+          }
         } else {
           if (!document.querySelector("[data-type=error_message]")) {
             const errorMessage = `<span data-type="error_message" class="error">${json.msg}</span>`;
