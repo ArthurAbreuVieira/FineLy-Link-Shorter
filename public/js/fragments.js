@@ -37,11 +37,11 @@ const fragments = {
         <div class="flex-column">
           <div style="margin-top: 25px;" class="overflow-hidden w50">
             <span style="font-weight:bold" class="txt-shadow">Redirecionamento atual:</span>
-            <h3><a href="{{link.redirect}}" class="main-green txt-shadow">{{link.redirect}}</a></h3>
+            <h3><a target="_blank" href="{{link.redirect}}" class="main-green txt-shadow">{{link.redirect}}</a></h3>
           </div>
           <div style="margin-top: 25px;" class="overflow-hidden w50">
             <span style="font-weight:bold" class="txt-shadow">Código do link:</span>
-            <h3><a href="{{link.shorted}}" class="main-green txt-shadow">{{link.id}}</a></h3>
+            <h3><a target="_blank" href="{{link.shorted}}" class="main-green txt-shadow">{{link.id}}</a></h3>
           </div>
         </div>
         <div id="main-content" class="w100 flex-center-column" style="margin-top: 30px;">
@@ -62,11 +62,11 @@ const fragments = {
           <div class="flex-column">
             <div style="margin-top: 25px;" class="overflow-hidden w50">
               <span style="font-weight:bold" class="txt-shadow">Redirecionamento atual:</span>
-              <h3><a href="{{link.redirect}}" class="main-green txt-shadow">{{link.redirect}}</a></h3>
+              <h3><a target="_blank" href="{{link.redirect}}" class="main-green txt-shadow">{{link.redirect}}</a></h3>
             </div>
             <div style="margin-top: 25px;" class="overflow-hidden w50">
               <span style="font-weight:bold" class="txt-shadow">Código do link:</span>
-              <h3><a href="{{link.shorted}}" class="main-green txt-shadow">{{link.id}}</a></h3>
+              <h3><a target="_blank" href="{{link.shorted}}" class="main-green txt-shadow">{{link.id}}</a></h3>
             </div>
             <div style="margin-top: 25px;" class="overflow-hidden w50">
               <span style="font-weight:bold" class="txt-shadow">Total de cliques:</span>
