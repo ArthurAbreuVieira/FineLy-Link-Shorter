@@ -4,36 +4,36 @@
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
-<main class="w100 h100 flex-center-collumn">
+<main class="w100 h100 flex-center-column">
   <div class="profile container">
-    <div class="h100 flex-start-collumn" id="profile-info">
+    <div class="h100 flex-start-column" id="profile-info">
       <img class="profile-pic box-shadow" width="120px" height="120px"
         src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="profile">
-      <div class="flex-collumn ">
-        <div class="flex-collumn info row overflow-hidden" style="max-height: 95px;">
+      <div class="flex-column ">
+        <div class="flex-column info row overflow-hidden" style="max-height: 95px;">
           <label class="txt-shadow">Nome:</label>
           <span id="name" class="txt-shadow">{{user.name}}</span>
         </div>
-        <div class="flex-collumn info row overflow-hidden " style="max-height: 95px;">
+        <div class="flex-column info row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Email:</label>
           <span id="email" class="txt-shadow">{{user.email}}</span>
         </div>
       </div>
     </div>
-    <div id="updateForm" class="w100 h100 flex-between-collumn">
+    <div id="updateForm" class="w100 h100 flex-between-column">
       <h3>Alterar dados</h3>
       <div class="h100 w100 flex-start">
-        <div class="flex-collumn row overflow-hidden" style="max-height: 95px;">
+        <div class="flex-column row overflow-hidden" style="max-height: 95px;">
           <label class="txt-shadow">Nome:</label>
           <span class="txt-shadow">{{user.name}}</span>
           <button data-edit="name" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>Editar</button>
         </div>
-        <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
+        <div class="flex-column row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Email:</label>
           <span class="txt-shadow">{{user.email}}</span>
           <button data-edit="email" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>Editar</button>
         </div>
-        <div class="flex-collumn row overflow-hidden " style="max-height: 95px;">
+        <div class="flex-column row overflow-hidden " style="max-height: 95px;">
           <label class="txt-shadow">Senha:</label>
           <span class="txt-shadow">• • • • • • • •</span>
           <button data-edit="password" class="btn input txt-shadow gradient radius"><i class="fas fa-user-edit"></i>Editar</button>

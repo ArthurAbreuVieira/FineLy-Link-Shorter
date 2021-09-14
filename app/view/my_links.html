@@ -4,41 +4,41 @@
 {% block title %} Teste {% endblock %} 
 
 {% block content %}
-<main class="w100 mh100 flex-start-collumn" style="padding: 150px 0;">
+<main class="w100 mh100 flex-start-column" style="padding: 150px 0;">
   {% if flash %}
     <span class="success"> {{flash.msg}} </span>
   {% endif %}
   <h2>Olá, {{user.name|capitalize}}.</h2>
   <h3>Abaixo estão todos os seus links encurtados</h3>
   <div class="flex-center list">
-    <ul class="w100 flex-center-collumn" id="list">
+    <ul class="w100 flex-center-column" id="list">
       {% for link in links %}
-      <li class="w100 flex-j-center-collumn" style="border-radius: 15px;">
+      <li class="w100 flex-j-center-column" style="border-radius: 15px;">
         <div class="h100 flex-j-evenly">
-          <div class="flex-collumn li-code">
+          <div class="flex-column li-code">
             <span>CÓDIGO:</span>
             <span><a href="{{link.shorted}}">{{link.id}}</a></span>
           </div>
-          <div class="flex-collumn overflow-hidden li-redirect">
+          <div class="flex-column overflow-hidden li-redirect">
             <span>Redirecionamento:</span>
             <a href="{{link.redirect}}">{{link.redirect}}</a>
           </div>
-          <div class="flex-collumn">
+          <div class="flex-column">
             <button style="padding: 5px 15px;" class="btn gradient radius txt-shadow" data-js="showBtn">
               Ver mais
               <i class="fas fa-sort-down"></i>
             </button>
           </div>
         </div>
-        <div id="details" class="hide show flex-evenly-collumn overflow-hidden">
+        <div id="details" class="hide show flex-evenly-column overflow-hidden">
           <div class="strip flex-center">
             <a href="{{BASE}}/details/{{link.id}}" class="btn gradient txt-shadow radius" style="padding: 5px 15px;">VER INFORMAÇÕES DETALHADAS</a>
           </div>
-          <div class="w100 flex-start-collumn strip">
+          <div class="w100 flex-start-column strip">
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Redirecionamento:</span>
             <a href="{{link.redirect}}" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.redirect}}</a>
           </div>
-          <div class="strip w100 flex-start-collumn">
+          <div class="strip w100 flex-start-column">
             <span class="main-green" style="font-size: 20px;font-weight: bold;">Link encurtado:</span>
             <a href="{{link.shorted}}" class="w100 align-center link-nav" style="font-size: 20px;color: white;">{{link.shorted}}</a>
           </div>

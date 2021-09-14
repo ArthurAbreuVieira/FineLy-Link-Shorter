@@ -23,14 +23,14 @@
     </header>
     <div class="details-body">
       <div class="clicks-datails">
-        <div class="flex-center-collumn detail-card">
+        <div class="flex-center-column detail-card">
           <header class="header-title">TOTAL DE CLIQUES:</header>
           <div class="circle flex-center box-shadow">
             <span class="flex-center box-shadow txt-shadow" id="clickCount">{{link.click_count}}</span>
           </div>
         </div>
-        <div class="flex-center-collumn history-container detail-card">
-          <header class="flex-center-collumn w100">
+        <div class="flex-center-column history-container detail-card">
+          <header class="flex-center-column w100">
             <h3>Histórico de cliques</h3>
             <div class="gradient-border"></div>
           </header>
@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-center-collumn">
+    <div class="flex-center-column">
       <div class="flex-start w100 creation-details">
         <header>Informações de criação</header>
         <div>
@@ -74,12 +74,12 @@
     </div>
   </div>
   {% else %}
-  <div class="w100 flex-center-collumn">
+  <div class="w100 flex-center-column">
     {% if error %}
     <span class="error">{{error.msg}}</span>
     {% endif %}
     <h3 style="margin-bottom:25px">Digite o código do link encurtado abaixo.</h3>
-    <form action="{{BASE}}/details" method="POST" class="w100 flex-center-collumn">
+    <form action="{{BASE}}/details" method="POST" class="w100 flex-center-column">
       <input class="link-input input radius" type="text" placeholder="Digite o link encurtado ou o código dele"
         name="link" />
       <input class="btn input gradient txt-shadow radius" type="submit" value="Procurar link" />

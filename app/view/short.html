@@ -4,16 +4,16 @@
 {% block title %} Teste {% endblock %}
 
 {% block content %}
-<main class="w100 h100 flex-center-collumn">
-  <div class="container flex-center-collumn">
+<main class="w100 h100 flex-center-column">
+  <div class="container flex-center-column">
     <div class="logo"><img src="" alt="logo"></div>
     <div class="w100 flex">
-      <form action="{{BASE}}/short" method="POST" class="w100 flex-center-collumn">
+      <form action="{{BASE}}/short" method="POST" class="w100 flex-center-column">
         <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url" />
         <input class="btn input gradient txt-shadow radius" type="submit" value="Encurtar" />
       </form>
     </div>
-    <div class="info flex-center-collumn">
+    <div class="info flex-center-column">
       {% if error == 'empty_url' %}
       <h3>Digite uma url no campo acima e clique em encurtar.</h3>
       {% else %}

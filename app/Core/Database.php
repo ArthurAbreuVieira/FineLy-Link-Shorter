@@ -13,8 +13,8 @@ class Database {
     $this->conn = new \PDO("$driver:host=$host;dbname=$dbname", $user, $password);
   }
 
-  public function selectOnly($table, $collumn, $value, $select = '*') {
-    $sql = "SELECT $select FROM $table WHERE $collumn = :value";
+  public function selectOnly($table, $column, $value, $select = '*') {
+    $sql = "SELECT $select FROM $table WHERE $column = :value";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':value', $value);
     if($stmt->execute()) {
@@ -24,8 +24,8 @@ class Database {
     return false;
   }
   
-  public function selectMany($table, $collumn, $value, $select = '*') {
-    $sql = "SELECT $select FROM $table WHERE $collumn = :value";
+  public function selectMany($table, $column, $value, $select = '*') {
+    $sql = "SELECT $select FROM $table WHERE $column = :value";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':value', $value);
     if($stmt->execute()) {
@@ -38,18 +38,18 @@ class Database {
   }
 
   public function insert($table, $values) {
-    $sql = "INSERT INTO $table({{collumns}}) VALUES({{values}})";
+    $sql = "INSERT INTO $table({{columns}}) VALUES({{values}})";
 
-    $collumns = '';
+    $columns = '';
     $str_values = '';
     foreach($values as $key => $value) {
-      $collumns .= "$key,";
+      $columns .= "$key,";
       $str_values .= "'$value',";
     }
-    $collumns = substr($collumns, 0, -1);
+    $columns = substr($columns, 0, -1);
     $str_values = substr($str_values, 0, -1);
 
-    $sql = str_replace("{{collumns}}", $collumns, $sql);
+    $sql = str_replace("{{columns}}", $columns, $sql);
     $sql = str_replace("{{values}}", $str_values, $sql);
 
     if(str_contains($sql,"'NOW()'")) {
@@ -63,8 +63,8 @@ class Database {
       return false;
   }
 
-  public function update($table, $collumn, $value, $where, $whereValue) {
-    $sql = "UPDATE $table SET $collumn = :newValue WHERE $where = :whereValue";
+  public function update($table, $column, $value, $where, $whereValue) {
+    $sql = "UPDATE $table SET $column = :newValue WHERE $where = :whereValue";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindValue(":newValue", $value);
     $stmt->bindValue(":whereValue", $whereValue);
@@ -74,8 +74,8 @@ class Database {
       return false;
   }
 
-  public function delete($table, $collumn, $value) {
-    $sql = "DELETE FROM $table WHERE $collumn = :value";
+  public function delete($table, $column, $value) {
+    $sql = "DELETE FROM $table WHERE $column = :value";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindValue(":value", $value);
     if ($stmt->execute()) 

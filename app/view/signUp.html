@@ -4,14 +4,14 @@
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
-<main class="w100 h100 flex-center-collumn">
-  <div class="container flex-center-collumn">
+<main class="w100 h100 flex-center-column">
+  <div class="container flex-center-column">
     <div class="logo"><img src="" alt="logo"></div>
-    <div class="w100 flex-center-collumn">
+    <div class="w100 flex-center-column">
       {% if error %}
       <span class="error">{{error.msg}}</span>
       {% endif %}
-      <form action="{{BASE}}/signup-user" method="POST" class="w100 flex-center-collumn">
+      <form action="{{BASE}}/signup-user" method="POST" class="w100 flex-center-column">
         <input class="link-input input radius" type="text" placeholder="Nome" name="name" required/>
         <input class="link-input input radius" type="email" placeholder="Email" name="email" required/>
         <input class="link-input input radius" type="password" placeholder="Senha" name="password" required/>

@@ -4,14 +4,14 @@
 {% block title %} Cadastro {% endblock %}
 
 {% block content %}
-<main class="w10 h100 flex-center-collumn">
-  <div class="container flex-center-collumn">
+<main class="w10 h100 flex-center-column">
+  <div class="container flex-center-column">
     <div class="logo"><img src="" alt="logo"></div>
-    <div class="w100 flex-center-collumn">
+    <div class="w100 flex-center-column">
       {% if error %}
       <span class="error">{{error.msg}}</span>
       {% endif %}
-      <form action="{{BASE}}/login-user" method="POST" class="w100 flex-center-collumn">
+      <form action="{{BASE}}/login-user" method="POST" class="w100 flex-center-column">
         <input class="link-input input radius" type="email" placeholder="Email" name="email" required/>
         <input class="link-input input radius" type="password" placeholder="Senha" name="password" required/>
         <input class="btn input gradient txt-shadow radius" type="submit" value="Fazer Login" />

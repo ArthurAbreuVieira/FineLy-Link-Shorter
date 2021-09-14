@@ -7,20 +7,20 @@
 {% if user %}
 {% include 'index.loggedin.html' %}
 {% else %}
-<main class="w100 flex-center-collumn bg-image">
-  <div class="flex-center-collumn container box-shadow">
+<main class="w100 flex-center-column bg-image">
+  <div class="flex-center-column container box-shadow">
     <div class="logo"><img src="" alt="LOGO"></div>
     <div class="w100 flex">
-      <form action="./short" method="POST" class="w100 flex-center-collumn">
+      <form action="./short" method="POST" class="w100 flex-center-column">
         <input class="link-input input radius" type="text" placeholder="www.digiteseulink.com" name="url" />
         <input class="btn input gradient radius txt-shadow" type="submit" value="Encurtar" />
       </form>
     </div>
     <div class="info">
       <h3>O que é o FineLy?</h3>
-      <p>Uma ferramenta que serve para encurtar links. Basta digitar uma URL longa no campo acima e a mesma será
+      <p class="align-justify">Uma ferramenta que serve para encurtar links. Basta digitar uma URL longa no campo acima e a mesma será
         reduzida a um novo link curto, facilitando o compartilhamento.</p>
-      <p>FineLy não requer que seja registrado para encurtar links mas quem se cadastra conta com mais ferramentas
+      <p class="align-justify">FineLy não requer que seja registrado para encurtar links mas quem se cadastra conta com mais ferramentas
         utéis. <a class="link-nav" href="#features">Descubra agora os beneficios de criar uma conta gratuitamente</a>.
       </p>
     </div>
@@ -51,7 +51,7 @@
 </section>
 <section id="cards" class="w100 flex-center">
 
-  <div class="flex-collumn w100">
+  <div class="flex-column w100">
     <div class="card-pair flex-center w100">
       <div class="card">
         <div class="card-header flex w100">

@@ -24,10 +24,10 @@ class UserModel extends Database {
   }
 
   public function updateUser($data) {
-    $collumn = $data['type'];
+    $column = $data['type'];
     $value = $data['value'];
     $id = $_SESSION['user']['id'];
-    if($this->update('users', $collumn, $value, 'id', $id)){
+    if($this->update('users', $column, $value, 'id', $id)){
       return true;
     }
     return false;
