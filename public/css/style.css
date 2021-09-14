@@ -814,7 +814,10 @@ p {
   .header-nav ul li {
     height: 50px;
   }
-
+  .tool {
+    margin: 0;
+    margin-top: 15px;
+  }
   .details-header {
     flex-direction: column;
     justify-content: space-between;

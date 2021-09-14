@@ -9,7 +9,7 @@
     <span class="success"> {{flash.msg}} </span>
   {% endif %}
   <h2>Olá, {{user.name|capitalize}}.</h2>
-  <h3>Abaixo estão todos os seus links encurtados</h3>
+  <h3 class="align-center">Abaixo estão todos os seus links encurtados</h3>
   <div class="flex-center list">
     <ul class="w100 flex-center-column" id="list">
       {% for link in links %}
