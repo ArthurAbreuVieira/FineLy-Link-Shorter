@@ -39,7 +39,11 @@ class ClickModel extends Database {
       return false;
     }
     foreach($data as $key => $click) {
+      $timezone = new \DateTimeZone('America/Sao_Paulo');
       $date = new \DateTime($click['clicked_at']);
+      $timestamp = $date->getTimestamp();
+      $date->setTimezone($timezone);
+      $date->setTimestamp($timestamp);
       $date = $date->format('d-m-Y H:i:s');
       $click['clicked_at'] = str_replace(['-', ' '], ['/', ' - '], $date);
       $data[$key]['clicked_at'] = $click['clicked_at'];
@@ -52,6 +56,13 @@ class ClickModel extends Database {
   public function getClickData($id = null) {
     $data = $this->selectOnly("clicks", "id", $id);
     if(!empty($data)) {
+      $timezone = new \DateTimeZone('America/Sao_Paulo');
+      $date = new \DateTime($data['clicked_at']);
+      $timestamp = $date->getTimestamp();
+      $date->setTimezone($timezone);
+      $date->setTimestamp($timestamp);
+      $date = $date->format('d-m-Y H:i:s');
+      $data['clicked_at'] = $date;
       return $data;
     }
     return false;

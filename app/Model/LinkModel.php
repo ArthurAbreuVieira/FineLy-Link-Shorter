@@ -17,7 +17,11 @@ class LinkModel extends Database {
     $links = $this->selectMany('links', 'owner', $user);
     
     foreach ($links as $key => $link) {
+      $timezone = new \DateTimeZone('America/Sao_Paulo');
       $date = new \DateTime($link['created_at']);
+      $timestamp = $date->getTimestamp();
+      $date->setTimezone($timezone);
+      $date->setTimestamp($timestamp);
       $date = $date->format('d-m-Y H:i:s');
       $links[$key]['created_at'] = $date;
       $links[$key]['shorted'] = $_ENV['BASE']."/".$link['id'];
@@ -31,7 +35,11 @@ class LinkModel extends Database {
     $linkData = $this->selectOnly('links', 'id', $link_code);
     if(!empty($linkData)) {
       if($linkData['owner'] === $owner) {
+        $timezone = new \DateTimeZone('America/Sao_Paulo');
         $date = new \DateTime($linkData['created_at']);
+        $timestamp = $date->getTimestamp();
+        $date->setTimezone($timezone);
+        $date->setTimestamp($timestamp);
         $date = $date->format('d-m-Y H:i:s');
         $linkData['created_at'] = $date;
         $linkData['shorted'] = $_ENV['BASE']."/".$linkData['id'];

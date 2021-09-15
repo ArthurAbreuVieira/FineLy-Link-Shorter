@@ -28,7 +28,7 @@ clickCollection.forEach(click => {
         });
         if (!isNaN(Number(click.longitude)) && !isNaN(Number(click.longitude))) {
           const map = document.getElementById('map');
-          const html = `<iframe src="http://maps.google.com/maps?q=${click.latitude}, ${click.longitude}&z=18&output=embed&t=k" width="100%" height="100%" frameborder="0" style="border:0"></iframe>`;
+          const html = `<iframe src="https://maps.google.com/maps?q=${click.latitude}, ${click.longitude}&z=18&output=embed&t=k" width="100%" height="100%" frameborder="0" style="border:0"></iframe>`;
           const iFrame = document.createRange().createContextualFragment(html).firstElementChild;
           map.appendChild(iFrame);
         } else {
