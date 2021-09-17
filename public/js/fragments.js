@@ -92,7 +92,7 @@ const fragments = {
               <div style="margin-top: 25px;" class="overflow-hidden w100 flex-column  ">
                 <h3 style="font-weight:bold" class="txt-shadow">Resumo:</h3>
                 <div class="row">
-                  <span class="txt-shadow">Alguém clicou no seu link as {!hour!} do dia {!date!}. O IP de quem clicou é {!ip!} e sua possivel localização se encontra em {!country!}, {!city!}, {!zip!} nas coordenadas Longitude: {!long!} e Latitude: {!lat!}</span>
+                  <span class="txt-shadow">Alguém clicou no seu link as <span class="main-green">{!hour!}</span> do dia <span class="main-green">{!date!}</span>. O IP de quem clicou é <span class="main-green">{!ip!}</span> e sua possivel localização se encontra em <span class="main-green">{!country!}</span>, <span class="main-green">{!city!}</span>, <span class="main-green">{!zip!}</span> nas coordenadas Longitude: <span class="main-green">{!long!}</span> e Latitude: <span class="main-green">{!lat!}</span></span>
                 </div>
               </div>
               <div style="margin-top: 25px;" class="overflow-hidden w100 flex-column  ">
