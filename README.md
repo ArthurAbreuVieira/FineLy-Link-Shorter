@@ -2,6 +2,7 @@
 ### FineLy é uma ferramenta para encurtar links. Basta digitar uma URL longa e a mesma será reduzida a um novo link curto, facilitando o compartilhamento. Além disso é possível acompanhar informações sobre os acessos a um link encurtado.
 
 ## 🌎 Para acessar o site do projeto [clique aqui](https://fine-ly.herokuapp.com)
+## ⚠️Atencção: Atualmente o domínio do site é disponibilizado pelo Heroku e isso deixa o link mais longo do desejado em alguns casos. Futuramente um domínio mais curto poderá ser utilizado para melhor cumprimento do objetivo.
 
 ### 📷 [Ver imagens do projeto](#imagens-do-projeto)
 
