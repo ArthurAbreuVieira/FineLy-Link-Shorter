@@ -3,7 +3,7 @@
 
 ## 🌎 Para acessar o site do projeto [clique aqui](https://fine-ly.herokuapp.com)
 
-📷 [Ver imagens do projeto](#imagens-do-projeto)
+### 📷 [Ver imagens do projeto](#imagens-do-projeto)
 
 ------------------
 # 👍 Funcionalidades
@@ -23,4 +23,32 @@
 * ✅ vlucas/phpdotenv
 * ✅ twig/twig 
 ------------------
-# 📷 Imagens do projeto
+# Imagens do projeto
+
+### Home
+<image src="./public/examples/home.PNG" width=800 /> <image src="./public/examples/home_logged.PNG" width=800 />
+
+*******************
+
+### Login
+<image src="./public/examples/login.PNG" width=800 />
+
+*******************
+
+### Meus Links
+<image src="./public/examples/mylinks.PNG" width=800 />
+
+*******************
+
+### Detalhes
+<image src="./public/examples/details.PNG" width=800 /><image src="./public/examples/click_track.PNG" width=800 /><image src="./public/examples/edit_link.PNG" width=800 />
+
+*******************
+
+### Perfil
+<image src="./public/examples/profile.PNG" width=800 /><image src="./public/examples/profile_edit.PNG" width=800 />
+
+*******************
+
+
+
